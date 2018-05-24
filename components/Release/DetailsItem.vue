@@ -12,7 +12,7 @@
       <div class="ReleaseDetailsItem__Image">
         <img
           ref="image"
-          src="">
+          :data-src="cover">
       </div>
     </div>
     <div class="ReleaseDetailsItem__Right">
@@ -73,8 +73,8 @@ export default {
       []
     }
   },
-  mounted() {
-    this.$nextTick(this.loadImage);
+  mounted(context) {
+    this.loadImage();
   },
   methods: {
     // Logic
@@ -83,6 +83,9 @@ export default {
       const img = new Image();
       img.onload = () => {
         this.$refs.image.src = self.cover;
+        TweenLite.to(this.$refs.image, .25, {
+          opacity: 1
+        })
         self.$set(this, 'isLoaded', true)
       }
       img.src = self.cover;
@@ -141,11 +144,15 @@ export default {
 
 .ReleaseDetailsItem__Image {
   width: 100%;
+  height: 100%;
   max-width: 450px;
+  max-height: 450px
 }
 
 .ReleaseDetailsItem__Image img {
   width: 100%;
+  opacity: 0.01;
+  will-change: opacity;
 }
 
 .ReleaseDetailsItem__Title {
