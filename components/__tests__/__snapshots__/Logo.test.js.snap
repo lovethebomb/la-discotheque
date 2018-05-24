@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo.vue matches snapshot 1`] = `
+<div class="Logo">
+  <nuxt-link to="/">
+    <h1>La Discothèque</h1>
+  </nuxt-link>
+</div>
+`;
