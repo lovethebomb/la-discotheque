@@ -6,7 +6,6 @@
 
 export default {
   mounted() {
-    console.debug('index is up!')
     setTimeout( () => {
       this.$router.push('collection')
     }, 0)
