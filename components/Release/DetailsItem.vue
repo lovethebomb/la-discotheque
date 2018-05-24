@@ -75,7 +75,6 @@ export default {
   },
   mounted() {
     this.$nextTick(this.loadImage);
-    // this.loadImage()
   },
   methods: {
     // Logic
