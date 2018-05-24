@@ -12,6 +12,10 @@ const createStore = () => {
       collection: {
         items: [],
         isLoaded: false
+      },
+      wantlist: {
+        items: [],
+        isLoaded: false
       }
     },
     getters,

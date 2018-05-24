@@ -25,6 +25,11 @@ router.get('/collection', async (req, res) => {
   res.json(query)
 })
 
+router.get('/wantlist', async (req, res) => {
+  const query = await service.getWantlist(config.DISCOGS_USERNAME);
+  res.json(query)
+})
+
 router.get('/releases/:id', async (req, res) => {
   const query = await service.getRelease(req.params.id);
   res.json(query)
