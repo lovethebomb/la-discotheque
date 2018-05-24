@@ -17,8 +17,10 @@
     </div>
     <div class="ReleaseDetailsItem__Right">
       <a
-        href="#"
-        class="ReleaseDetailsItem__DiscogsLink">See on Discogs</a>
+        :href="discogsURI"
+        class="ReleaseDetailsItem__DiscogsLink"
+        target="_blank"
+        rel="noopener">See on Discogs</a>
       <ReleaseItemTracklist :tracklist="tracklist"/>
       <a
         href="#"
@@ -63,6 +65,9 @@ export default {
     cover() { return this.release.images ?
       this.release.images[0].resource_url :
       "";
+    },
+    discogsURI() {
+      return this.release.uri
     },
     label() { return this.release.labels ?
       this.release.labels.map(label => label.name).join(', ') :

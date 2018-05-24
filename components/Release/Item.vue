@@ -13,11 +13,10 @@
         {{ album }} by {{ artist }}
       </nuxt-link>
       <div class="ReleaseItem__Overlay" />
-      <div class="ReleaseItem__Image">
-        <img
-          ref="image"
-          src="">
-      </div>
+      <div
+        ref="image"
+        :data-src="cover"
+        class="ReleaseItem__Image"/>
       <div class="ReleaseItem__Title">
         <p class="ReleaseItem__Album">
           <span>{{ album }}</span>
@@ -36,6 +35,7 @@
 
 <script>
 import { TweenLite, Power4 } from 'gsap';
+import slugify from 'slugify';
 
 export default {
   props: {
@@ -77,7 +77,8 @@ export default {
       "";
     },
     releaseRoute() {
-      return `/collection/${this.release.id}`;
+      const slug = slugify(`${this.album.substring(0, 32)}-by-${this.artist.substring(0,32)}`)
+      return `/collection/${this.release.id}-${slug}`;
     }
   },
   mounted() {
@@ -90,7 +91,7 @@ export default {
       const self = this;
       const img = new Image();
       img.onload = () => {
-        this.$refs.image.src = self.cover;
+        this.$refs.image.style.backgroundImage = `url('${self.cover}'`;
         self.$set(this, 'isLoaded', true)
       }
       img.src = self.cover;
@@ -157,7 +158,7 @@ export default {
   right: 0;
   bottom: 0;
   background-color: #222;
-  opacity: 0.4;
+  opacity: 0.23;
   will-change: opacity;
   transition: opacity .15s ease-in-out;
   z-index: 1;
@@ -165,10 +166,12 @@ export default {
 
 .ReleaseItem__Image {
   width: 100%;
-}
-
-.ReleaseItem__Image img {
-  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background-color: lightgrey;
+  background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .ReleaseItem__Title {
