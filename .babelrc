@@ -1,0 +1,21 @@
+{
+  "presets": [
+    ["env", { "modules": false }]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        ["env", {
+          "targets": { "node": 10 }
+        }]
+      ],
+      "plugins": [
+        ["transform-runtime", {
+          "helpers": false,
+          "polyfill": false,
+          "regenerator": true
+        }]
+      ]
+    }
+  }
+}
