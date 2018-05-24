@@ -12,11 +12,12 @@ export default {
     ReleaseDetailsItem
   },
   validate ({ params }) {
-    // Must be a number
-    return /^\d+$/.test(params.slug);
+    // Must be a number-album-by-artist
+    return params.slug.split('-').length >= 4
   },
   async asyncData ({ params, store }) {
-    const id = params.slug;
+    const slug = params.slug.split('-');
+    const id = slug[0];
 
     if (store.state.currentRelease.id === ~~id) {
       return;
