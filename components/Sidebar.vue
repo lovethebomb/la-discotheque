@@ -1,18 +1,30 @@
 <template>
   <div class="Sidebar">
     <ul class="Sidebar__Container">
-      <li class="Sidebar__Link is-active">
-        <nuxt-link to="/collection" >Collection</nuxt-link>
-      </li>
-      <li class="Sidebar__Link">
-        <a href="#" >Wishlist</a>
-      </li>
-      <li class="Sidebar__Link">
-        <a href="#" >About</a>
-      </li>
+      <nuxt-link
+        class="Sidebar__Link"
+        tag="li"
+        to="/collection" >
+        <a>Collection</a>
+      </nuxt-link>
+      <nuxt-link
+        class="Sidebar__Link"
+        tag="li"
+        to="/wishlist" >
+        <a>Wishlist</a>
+      </nuxt-link>
+      <nuxt-link
+        class="Sidebar__Link"
+        tag="li"
+        to="/about" >
+        <a>About</a>
+      </nuxt-link>
     </ul>
   </div>
 </template>
+
+<script>
+</script>
 
 <style>
 .Sidebar {
@@ -23,7 +35,6 @@
   top: 0;
   bottom: 0;
   background: #1b1b1b;
-  overflow: hidden;
 }
 
 .Sidebar__Container {
@@ -39,14 +50,33 @@
   text-align: center;
   line-height: 96px;
   padding: 1em 0;
+  position: relative;
 }
 
-.Sidebar__Link.is-active {
+.Sidebar__Link::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: #0053FF;
+    border-radius: 4px;
+    position: absolute;
+    right: -4px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    visibility: hidden;
+}
+
+.Sidebar__Link.nuxt-link-active {
   font-family: "IBMPlexMono-SemiBold";
   color: #0053FF;
   width: 100%;
   text-align: center;
   line-height: 96px;
+}
+.Sidebar__Link.nuxt-link-active:after {
+    visibility: visible;
 }
 
 .Sidebar__Link:last-of-type {
