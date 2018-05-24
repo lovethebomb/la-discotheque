@@ -1,9 +1,12 @@
 require('isomorphic-fetch');
+// We declare it here because otherwise it will be overriden by the build process.
+const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
 
 const actions = {
-  'GET_COLLECTION': async ({ context, commit }) => {
+  'GET_COLLECTION': async ({ commit, state }) => {
+
     // TODO fix absolute url for SSR
-    const query = await fetch('http://localhost:3000/api/collection');
+    const query = await fetch(`${state.BASE_URL}/api/collection`);
     const payload = await query.json();
 
     if (payload.ok) {
@@ -11,8 +14,8 @@ const actions = {
     }
     // TOOD handle error
   },
-  'GET_RELEASE': async ({ getters, commit }, id) => {
-    const query = await fetch(`http://localhost:3000/api/releases/${id}`);
+  'GET_RELEASE': async ({ getters, state, commit }, id) => {
+    const query = await fetch(`${state.BASE_URL}/api/releases/${id}`);
     const payload = await query.json();
 
     if (payload.ok) {
@@ -20,6 +23,9 @@ const actions = {
     }
     // TOOD handle error
   },
+  nuxtServerInit({ commit, state }, { req }) {
+    commit('SET_BASE_URL', BASE_URL)
+  }
 }
 
 export default actions
