@@ -1,7 +1,7 @@
 
 import { mount, shallowMount } from '@vue/test-utils'
 
-import NuxtLink from '~/.nuxt/components/nuxt-link'
+import NuxtLink from 'nuxt/lib/app/components/nuxt-link'
 import Collection from '~/components/Collection.vue'
 
 const releases = [

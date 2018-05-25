@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 
-import NuxtLink from '~/.nuxt/components/nuxt-link'
+import NuxtLink from 'nuxt/lib/app/components/nuxt-link'
 import Sidebar from '~/components/Sidebar.vue'
 
 describe('Sidebar.vue', () => {
