@@ -1,5 +1,5 @@
 <template>
-  <div class="CollectionDetail">
+  <div class="WishlistDetail">
     <Detail :release="release" />
   </div>
 </template>

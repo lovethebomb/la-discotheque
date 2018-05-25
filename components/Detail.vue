@@ -1,30 +1,34 @@
 <template>
-  <div class="ReleaseDetailsItem">
-    <div class="ReleaseDetailsItem__Left">
-      <div class="ReleaseDetailsItem__Title">
-        <p class="ReleaseDetailsItem__Album">
+  <div class="Detail grid">
+    <header class="Detail__Header">
+      <div class="DetailItem__Title">
+        <p class="DetailItem__Album">
           <span>{{ album }}</span>
         </p>
-        <p class="ReleaseDetailsItem__Artist">
+        <p class="DetailItem__Artist">
           <span>{{ artist }}</span>
         </p>
       </div>
-      <div class="ReleaseDetailsItem__Image">
-        <img
-          ref="image"
-          :data-src="cover">
-      </div>
-    </div>
-    <div class="ReleaseDetailsItem__Right">
       <a
         :href="discogsURI"
-        class="ReleaseDetailsItem__DiscogsLink"
+        class="DetailItem__DiscogsLink"
         target="_blank"
         rel="noopener">See on Discogs</a>
-      <ReleaseItemTracklist :tracklist="tracklist"/>
-      <a
-        href="#"
-        class="ReleaseDetailsItem__More">+ infos</a>
+    </header>
+    <div class="Detail__Content">
+      <div class="Detail__Content__Left column is-4">
+        <div class="DetailItem__Image">
+          <img
+            ref="image"
+            :data-src="cover">
+        </div>
+      </div>
+      <div class="Detail__Content__Right column is-4">
+        <ReleaseItemTracklist :tracklist="tracklist"/>
+        <a
+          href="#"
+          class="DetailItem__More">+ infos</a>
+      </div>
     </div>
   </div>
 </template>
@@ -129,66 +133,75 @@ export default {
 </script>
 
 <style>
-.ReleaseDetailsItem {
+.Detail {
+  margin: auto;
+}
+
+.Detail__Header {
+  position: relative;
+  margin-bottom: 68px;
   display: flex;
   flex-flow: row wrap;
-  position: relative;
   justify-content: space-between;
 }
 
-.ReleaseDetailsItem__Left {
-  width: 100%;
-  max-width: 450px
+.Detail__Content {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  justify-content: center;
 }
 
-.ReleaseDetailsItem__Right {
-  width: 100%;
-  max-width: 330px;
+.Detail__Content__Left {
+  padding-left: 0;
 }
 
-
-.ReleaseDetailsItem__Image {
-  width: 100%;
-  height: 100%;
-  max-width: 450px;
-  max-height: 450px
+.Detail__Content__Right {
+  /* because of Tracklist, we add padding */
+  padding-left: 30px;
+  margin-left: 90px; /* column size */
+  align-self: center;
 }
 
-.ReleaseDetailsItem__Image img {
-  width: 100%;
-  opacity: 0.01;
-  will-change: opacity;
-}
+.DetailItem__Title {}
 
-.ReleaseDetailsItem__Title {
-  margin-bottom: 68px;
-}
-
-.ReleaseDetailsItem__Album {
+.DetailItem__Album {
   font-family: "bluu";
   font-size: 32px;
   margin-right: 16px;
   display: inline-block;
 }
 
-.ReleaseDetailsItem__Artist {
+.DetailItem__Artist {
   font-size: 24px;
-  line-height: 0em;
   display: inline-block;
 }
 
-.ReleaseDetailsItem__DiscogsLink {
+.DetailItem__DiscogsLink {
   display: block;
   text-align: right;
   font-size: 14px;
   text-decoration: none;
-  line-height: 32px;
+  padding-top: 4px;
 }
 
-.ReleaseDetailsItem .Tracklist {
+
+.DetailItem__Image {
+  width: 100%;
+  height: 100%;
+  max-width: 450px;
+  max-height: 450px
+}
+
+.DetailItem__Image img {
+  width: 100%;
+  opacity: 0.01;
+  will-change: opacity;
+}
+
+
+.DetailItem .Tracklist {
   margin-top: 68px;
   margin-bottom: 40px;
 }
-
-
 </style>
