@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 
-import NuxtLink from '@/.nuxt/components/nuxt-link'
-import Logo from '@/components/Logo.vue'
+import NuxtLink from '~/.nuxt/components/nuxt-link'
+import Logo from '~/components/Logo.vue'
 
 describe('Logo.vue', () => {
   beforeEach(() => {
@@ -13,8 +13,8 @@ describe('Logo.vue', () => {
     expect(wrapper.find('a'))
   })
 
-  // it('matches snapshot', () => {
-  //   const wrapper = shallowMount(Logo)
-  //   expect(wrapper.html()).toMatchSnapshot()
-  // })
+  it('matches snapshot', () => {
+    const wrapper = shallowMount(Logo)
+    expect(wrapper.html()).toMatchSnapshot()
+  })
 })

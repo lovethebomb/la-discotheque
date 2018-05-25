@@ -3,15 +3,9 @@
 exports[`Sidebar.vue matches snapshot 1`] = `
 <div class="Sidebar">
   <ul class="Sidebar__Container">
-    <li class="Sidebar__Link is-active">
-      <!---->
-    </li>
-    <li class="Sidebar__Link">
-      <a href="#">Wishlist</a>
-    </li>
-    <li class="Sidebar__Link">
-      <a href="#">About</a>
-    </li>
+    <!---->
+    <!---->
+    <!---->
   </ul>
 </div>
 `;
