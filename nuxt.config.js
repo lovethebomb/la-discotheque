@@ -4,8 +4,8 @@ module.exports = {
   ],
 
   css: [
-
-    '@/assets/css/fonts.css'
+    '@/assets/css/fonts.css',
+    '@/assets/css/grid.css'
   ],
 
   /*
