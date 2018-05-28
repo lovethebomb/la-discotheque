@@ -10,11 +10,10 @@ export default {
     Collection
   },
   async asyncData ({ store }) {
-    if (store.getters.collectionItemsCount > 0) {
-      return
+    if (!store.state.collection.isLoaded) {
+      await store.dispatch('GET_COLLECTION');
     }
 
-    await store.dispatch('GET_COLLECTION');
     return {
       releases: store.state.collection.items
     }

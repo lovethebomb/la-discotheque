@@ -10,11 +10,10 @@ export default {
     Collection
   },
   async asyncData ({ store }) {
-    if (store.state.wantlist.isLoaded) {
-      return
+    if (!store.state.wantlist.isLoaded) {
+      await store.dispatch('GET_WANTLIST');
     }
 
-    await store.dispatch('GET_WANTLIST');
     return {
       releases: store.state.wantlist.items
     }
