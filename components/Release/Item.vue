@@ -130,13 +130,15 @@ export default {
 </script>
 
 <style>
+@import "~assets/css/_variables.css";
+
 .ReleaseItem {
   position: relative;
-  width: 30%;
-  margin: 0 2em 4em 0;
-  max-width: 330px;
-  max-height: 330px;
+  width: 100%;
+  max-width: var(--releaseItemWidth);
+  max-height: var(--releaseItemHeight);
   will-change: opacity;
+  box-shadow: 0 2px 40px 0 #0D0D0D;
 }
 
 .ReleaseItem__Link {
@@ -166,7 +168,7 @@ export default {
 
 .ReleaseItem__Image {
   width: 100%;
-  height: 300px;
+  height: var(--releaseItemHeight);
   overflow: hidden;
   background-color: lightgrey;
   background-size: 100%;
@@ -201,7 +203,7 @@ export default {
 }
 .ReleaseItem__Album span, .ReleaseItem__Artist span {
   line-height: 1em;
-  background: #0053ff;
+  background-color: var(--releaseTitleBackground);
 }
 
 .ReleaseItem__Artist {
@@ -218,7 +220,7 @@ export default {
   position: absolute;
   bottom: calc(-1em - 10px);
   left: 0px;
-  color: #c1c6c9;
+  color: var(--releaseDetailsText);
   font-size: 14px;
   opacity: 0;
   transition: opacity .26s ease-out, transform .25s ease-out;
@@ -226,8 +228,7 @@ export default {
 }
 
 /* States */
-.ReleaseItem.is-selected {
-}
+.ReleaseItem.is-selected {}
 
 .ReleaseItem.is-selected .ReleaseItem__Overlay {
   opacity: 0;

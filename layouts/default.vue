@@ -20,11 +20,13 @@ export default {
 </script>
 
 <style>
+@import "~assets/css/_variables.css";
+
 html {
-  font-family: "IBMPlexMono-Regular";
+  font-family: var(--font-stack-IBM-regular);
   font-size: 16px;
-  background: #212223;
-  color: #fff;
+  background-color: var(--colorBackground);
+  color: var(--colorText);
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -39,8 +41,12 @@ html {
 }
 
 a {
-  font-family: "IBMPlexMono-SemiBold";
+  font-family: var(--font-stack-IBM-semibold);
   color: #0053FF;
   text-decoration: none;
+}
+
+.container {
+  padding-top: 40px;
 }
 </style>

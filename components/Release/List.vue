@@ -26,10 +26,20 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
+@import "~assets/css/_variables.css";
+
+
 .ReleaseList {
   display: flex;
   flex-flow: row wrap;
+
+  .ReleaseItem {
+    margin: var(--releaseItemMargin);
+  }
+  .ReleaseItem:nth-child(even) {
+    margin-top: var(--releaseItemOffset);
+  }
 }
 </style>
 

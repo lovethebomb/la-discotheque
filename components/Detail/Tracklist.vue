@@ -1,6 +1,9 @@
 <template>
   <div class="Tracklist">
-    <h3 class="Tracklist__Header">Tracklist</h3>
+    <div class="Tracklist__Header">
+      <h3>Tracklist</h3>
+      <img src="/img/svg/Tracklist-img.svg" >
+    </div>
     <ul>
       <li
         v-for="track in tracklist"
@@ -24,7 +27,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 .Tracklist {
   position: relative;
 }
@@ -33,9 +36,13 @@ export default {
   font-family: "bluu";
   font-size: 24px;
   position: absolute;
-  transform: rotate(-90deg);
-  top: 40px;
-  left: -90px;
+  top: 0px;
+  left: -32px;
+
+  h3 {
+    visibility: hidden;
+    height: 0;
+  }
 }
 
 .Tracklist ul {
@@ -45,6 +52,7 @@ export default {
 
 .Track {
   margin: 8px 0;
+
 }
 
 .Track__Position {
@@ -57,5 +65,9 @@ export default {
 
 .Track__Title {
   display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 80%;
 }
 </style>
