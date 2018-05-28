@@ -2,9 +2,12 @@
 
 exports[`Sidebar.vue matches snapshot 1`] = `
 <div class="Sidebar">
+  <!---->
   <ul class="Sidebar__Container">
-    <!---->
-    <!---->
+    <li class="Sidebar__Group">
+      <!---->
+      <!---->
+    </li>
     <!---->
   </ul>
 </div>
