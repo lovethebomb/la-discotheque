@@ -4,6 +4,7 @@ module.exports = {
   ],
 
   css: [
+    '@/assets/css/globals.css',
     '@/assets/css/fonts.css',
     '@/assets/css/grid.css'
   ],
@@ -30,6 +31,12 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    postcss: {
+      plugins: [
+        require('postcss-cssnext'),
+        require('postcss-nested')
+      ]
+    },
     /*
     ** Run ESLint on save
     */

@@ -1,0 +1,20 @@
+:root {
+  --colorBackground: #212223;
+  --colorText: #fff;
+  --colorBlue: #0053ff;
+  --colorGrey: #949799;
+
+  --gridWidth: 1440px;
+  --gridCols: 12;
+
+  --releaseItemWidth: 330px;
+  --releaseItemHeight: 330px;
+  --releaseItemOffset: 80px;
+  --releaseItemMargin: 0 100px 1em 0;
+  --releaseTitleBackground: var(--colorBackground);
+  --releaseDetailsText: var(--colorGrey);
+
+  --font-stack-bluu-regular: "bluu", "inherit";
+  --font-stack-IBM-regular: "IBMPlexMono-Regular", "inherit";
+  --font-stack-IBM-semibold: "IBMPlexMono-SemiBold", "inherit";
+}
