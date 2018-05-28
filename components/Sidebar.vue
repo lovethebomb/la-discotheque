@@ -1,18 +1,21 @@
 <template>
   <div class="Sidebar">
+    <Logo />
     <ul class="Sidebar__Container">
-      <nuxt-link
-        class="Sidebar__Link"
-        tag="li"
-        to="/collection" >
-        <a>Collection</a>
-      </nuxt-link>
-      <nuxt-link
-        class="Sidebar__Link"
-        tag="li"
-        to="/wishlist" >
-        <a>Wishlist</a>
-      </nuxt-link>
+      <li class="Sidebar__Group">
+        <nuxt-link
+          class="Sidebar__Link"
+          tag="div"
+          to="/collection" >
+          <a>Collection</a>
+        </nuxt-link>
+        <nuxt-link
+          class="Sidebar__Link"
+          tag="div"
+          to="/wishlist" >
+          <a>Wishlist</a>
+        </nuxt-link>
+      </li>
       <nuxt-link
         class="Sidebar__Link"
         tag="li"
@@ -24,6 +27,13 @@
 </template>
 
 <script>
+import Logo from '~/components/Logo.vue'
+
+export default {
+  components: {
+    Logo,
+  }
+}
 </script>
 
 <style>
@@ -34,12 +44,12 @@
   left: 0;
   top: 0;
   bottom: 0;
-  background: #1b1b1b;
+  padding-top: 40px;
 }
 
 .Sidebar__Container {
   display: flex;
-  height: 100%;
+  height: calc(100% - 140px);
   flex-flow: row wrap;
   align-items: center;
 }
@@ -97,5 +107,7 @@
   padding: 0;
 }
 
-
+.Sidebar .Logo {
+  margin-left: 40px;
+}
 </style>
