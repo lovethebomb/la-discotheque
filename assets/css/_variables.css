@@ -14,6 +14,8 @@
   --releaseTitleBackground: var(--colorBackground);
   --releaseDetailsText: var(--colorGrey);
 
+  --releaseListPadding: 200px;
+
   --font-stack-bluu-regular: "bluu", "inherit";
   --font-stack-IBM-regular: "IBMPlexMono-Regular", "inherit";
   --font-stack-IBM-semibold: "IBMPlexMono-SemiBold", "inherit";
