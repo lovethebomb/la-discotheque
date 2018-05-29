@@ -16,7 +16,9 @@ const createStore = () => {
       wantlist: {
         items: [],
         isLoaded: false
-      }
+      },
+      sidebarOpened: false,
+      isMobile: false
     },
     getters,
     mutations,

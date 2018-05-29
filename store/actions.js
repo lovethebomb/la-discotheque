@@ -30,15 +30,14 @@ const actions = {
     }
     // TOOD handle error
   },
+
   async nuxtServerInit({ commit, dispatch }, { route }) {
     // TODO improve checks
     commit('SET_BASE_URL', BASE_URL)
     if (route.name == "collection-slug") {
-      console.debug('fetch server init collection')
       dispatch('GET_COLLECTION');
     }
     else if (route.name == "wishlist-slug") {
-      console.debug('fetch server init wantlist')
       dispatch('GET_WANTLIST');
     }
   }

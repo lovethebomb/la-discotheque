@@ -12,6 +12,12 @@ const mutations = {
   },
   'SET_RELEASE': (state, payload) => {
     state.currentRelease = Object.assign({}, payload.data)
+  },
+  'SET_SIDEBAR_VISIBLE': (state, payload) => {
+    state.sidebarOpened = payload
+  },
+  'SET_LAYOUT_MOBILE': (state, payload) => {
+    state.isMobile = payload
   }
 }
 
