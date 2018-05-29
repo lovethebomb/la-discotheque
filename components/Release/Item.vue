@@ -78,7 +78,8 @@ export default {
     },
     releaseRoute() {
       const slug = slugify(`${this.album.substring(0, 32)}-by-${this.artist.substring(0,32)}`)
-      return `/collection/${this.release.id}-${slug}`;
+      const route = this.$route.name || "collection";
+      return `/${route}/${this.release.id}-${slug}`;
     }
   },
   mounted() {
