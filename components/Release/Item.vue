@@ -12,7 +12,6 @@
         class="ReleaseItem__Link">
         {{ album }} by {{ artist }}
       </nuxt-link>
-      <div class="ReleaseItem__Overlay" />
       <div
         ref="image"
         :data-src="cover"
@@ -28,6 +27,7 @@
       <div class="ReleaseItem__Details">
         <span class="RelaseItem__Details__Label">{{ label }}</span>
       </div>
+      <div class="ReleaseItem__Overlay" />
     </div>
   </transition>
 </template>
@@ -163,7 +163,7 @@ export default {
   opacity: 0.23;
   will-change: opacity;
   transition: opacity .15s ease-in-out;
-  z-index: 1;
+  z-index: 10;
 }
 
 .ReleaseItem__Image {
@@ -187,10 +187,8 @@ export default {
   font-family: "bluu";
   font-size: 32px;
   margin-bottom: 10px;
-  opacity: 0;
-  /* transform: translate3d(0, 20px, 0); */
-  transition: opacity .25s ease-out, transform .25s ease-out;
-  /* transition-delay: .1s; */
+  opacity: .001;
+  transition: opacity .25s ease-out;
   z-index: 1;
 
 }
@@ -209,9 +207,8 @@ export default {
 .ReleaseItem__Artist {
   font-size: 24px;
   line-height: 1em;
-  opacity: 0;
-  /* transform: translate3d(0, 20px, 0); */
-  transition: opacity .24s ease-out, transform .25s ease-out;
+  opacity: .001;
+  transition: opacity .24s ease-out;
   transition-delay: .1s;
   z-index: 1;
 }
@@ -222,21 +219,18 @@ export default {
   left: 0px;
   color: var(--releaseDetailsText);
   font-size: 14px;
-  opacity: 0;
+  opacity: .001;
   transition: opacity .26s ease-out, transform .25s ease-out;
   transition-delay: .2s;
 }
 
 /* States */
-.ReleaseItem.is-selected {}
-
 .ReleaseItem.is-selected .ReleaseItem__Overlay {
-  opacity: 0;
+  opacity: .0001;
 }
 
 .ReleaseItem.is-selected .ReleaseItem__Album, .ReleaseItem.is-selected .ReleaseItem__Artist {
   opacity: 1;
-  transform: translate3d(0, 0, 0);
 }
 
 .ReleaseItem.is-selected .ReleaseItem__Details {
