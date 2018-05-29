@@ -8,7 +8,9 @@
         <Cover :cover="cover"/>
       </div>
       <div class="Detail__Content__Right column">
-        <Pagination class="is-12"/>
+        <Pagination
+          v-if="false"
+          class="is-12"/>
         <Info
           :release="release"
           class="Detail__Info column is-6" />
@@ -179,5 +181,9 @@ export default {
 
 }
 
-
+@media screen and (max-width: 768px) {
+  .Detail__Content__Left  {
+    padding: 0 2em;
+  }
+}
 </style>

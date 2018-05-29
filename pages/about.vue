@@ -12,4 +12,11 @@
   line-height: 21px;
   margin: auto;
 }
+
+@media screen and (max-width: 768px) {
+  .About {
+    margin-top: 40px;
+    padding: 0 2em;
+  }
+}
 </style>

@@ -1,37 +1,95 @@
 <template>
-  <div class="Sidebar">
-    <Logo />
-    <ul class="Sidebar__Container">
-      <li class="Sidebar__Group">
+  <transition
+    :css="false"
+    @beforeEnter="beforeEnter"
+    @enter="enter">
+    <div
+      v-show="isVisible"
+      class="Sidebar">
+      <Logo />
+      <ul class="Sidebar__Container">
+        <li class="Sidebar__Group">
+          <nuxt-link
+            class="Sidebar__Link"
+            tag="div"
+            to="/collection"
+            @click.native="onClick">
+            <a>Collection</a>
+          </nuxt-link>
+          <nuxt-link
+            class="Sidebar__Link"
+            tag="div"
+            to="/wishlist"
+            @click.native="onClick">
+            <a>Wishlist</a>
+          </nuxt-link>
+        </li>
         <nuxt-link
           class="Sidebar__Link"
-          tag="div"
-          to="/collection" >
-          <a>Collection</a>
+          tag="li"
+          to="/about"
+          @click.native="onClick">
+          <a>About</a>
         </nuxt-link>
-        <nuxt-link
-          class="Sidebar__Link"
-          tag="div"
-          to="/wishlist" >
-          <a>Wishlist</a>
-        </nuxt-link>
-      </li>
-      <nuxt-link
-        class="Sidebar__Link"
-        tag="li"
-        to="/about" >
-        <a>About</a>
-      </nuxt-link>
-    </ul>
-  </div>
+      </ul>
+    </div>
+  </transition>
 </template>
 
 <script>
+import { TweenLite, Power4 } from 'gsap';
+
 import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
     Logo,
+  },
+  computed: {
+    isVisible() {
+      if (!this.isMobile) {
+        return true
+      }
+
+      return this.$store.state.sidebarOpened
+    },
+    isMobile() {
+      return this.$store.state.isMobile
+    }
+  },
+
+  mounted() {
+    console.debug('sidebar mounted')
+  },
+  methods: {
+    onClick(e) {
+      console.debug('onClick')
+      if (this.isMobile) {
+        this.$store.commit('SET_SIDEBAR_VISIBLE', false)
+      }
+
+      return true;
+    },
+    // Animations
+    beforeEnter(el) {
+      console.debug('beforeEnter')
+      TweenLite.set(el, {
+        y: 40,
+        opacity: .01
+      })
+    },
+    enter(el, done) {
+      console.debug('onEnter', el)
+      TweenLite.to(el, .35, {
+        y: 0,
+        opacity: 1,
+
+        ease: Power4.easeOut,
+        onComplete: () => {
+          done()
+        }
+      })
+    }
   }
 }
 </script>
@@ -102,6 +160,33 @@ export default {
 
   .Logo {
     margin-left: 40px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0;
+    width: 100%;
+    background: var(--colorBackground);
+
+    .Logo {
+      margin: 40px auto ;
+    }
+
+    .Sidebar__Container {
+      height: auto;
+      flex-flow: column-wrap;
+    }
+
+    .Sidebar__Group {
+      width: 100%;
+    }
+
+    .Sidebar__Link {
+      padding: 0;
+
+      a {
+        transform: none;
+      }
+    }
   }
 }
 </style>

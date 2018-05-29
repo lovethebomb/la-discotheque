@@ -1,5 +1,6 @@
 <template>
   <section class="container">
+    <Menu />
     <Sidebar />
     <Content>
       <nuxt/>
@@ -8,13 +9,57 @@
 </template>
 
 <script>
+import debounce from 'debounce';
+
+import Menu from '~/components/Menu.vue'
 import Sidebar from '~/components/Sidebar.vue'
 import Content from '~/components/Content.vue'
 
+// We keep function separately here
+function testResize() {
+  if (window && window.innerWidth < 789) {
+    // if state is already mobile, skip
+    if (this.isMobile) {
+      return;
+    }
+
+    return this.$store.commit('SET_LAYOUT_MOBILE', true)
+  }
+
+  // if state is already desktop, skip
+  if (!this.isMobile) {
+    return;
+  }
+
+  return this.$store.commit('SET_LAYOUT_MOBILE', false)
+}
+
 export default {
   components: {
+    Menu,
     Sidebar,
     Content
+  },
+  computed: {
+    isMobile() {
+      return this.$store.state.isMobile
+    }
+  },
+  beforeDestroy: function () {
+    window.removeEventListener('resize', this.handleResize)
+  },
+  created() {
+    if (!this.$isServer) {
+      testResize.apply(this);
+    }
+  },
+  mounted() {
+    if (!this.$isServer) {
+      window.addEventListener('resize', this.handleResize)
+    }
+  },
+  methods: {
+    handleResize: debounce(testResize, 50),
   }
 }
 </script>

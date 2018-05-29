@@ -8,6 +8,11 @@
 </template>
 
 <style>
+.Logo {
+  width: 102px;
+  height: 102px;
+}
+
 .Logo a {
   color:inherit;
 }

@@ -36,9 +36,20 @@ export default {
 
   .ReleaseItem {
     margin: var(--releaseItemMargin);
+
+    &:nth-child(even) {
+      margin-top: var(--releaseItemOffset);
+    }
   }
-  .ReleaseItem:nth-child(even) {
-    margin-top: var(--releaseItemOffset);
+
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    padding: 0 2em;
+
+    .ReleaseItem {
+      margin: 3em auto !important;
+    }
   }
 }
 </style>

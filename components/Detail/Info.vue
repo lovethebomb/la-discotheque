@@ -99,6 +99,10 @@ export default {
     text-decoration: none;
     margin-top: 2em;
     padding: 0.6em 0.5em 0.5em;
+
+    &:hover {
+      color: var(--colorBlue);
+    }
   }
 
   & > p {
