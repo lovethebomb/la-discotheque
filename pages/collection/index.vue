@@ -1,13 +1,15 @@
 <template>
-  <Collection :releases="releases"/>
+  <div class="Collection">
+    <ReleaseList :releases="releases" />
+  </div>
 </template>
 
 <script>
-import Collection from '~/components/Collection.vue';
+import ReleaseList from '~/components/Release/List.vue';
 
 export default {
   components: {
-    Collection
+   ReleaseList
   },
   async asyncData ({ store }) {
     if (!store.state.collection.isLoaded) {
@@ -20,3 +22,15 @@ export default {
   }
 }
 </script>
+
+<style lang="postcss">
+@import "~assets/css/_variables.css";
+
+.Collection {
+  padding-top: var(--releaseListPadding);
+
+  @media screen and (max-width: 768px) {
+    padding-top: 0;
+  }
+}
+</style>
