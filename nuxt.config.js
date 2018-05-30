@@ -4,9 +4,9 @@ module.exports = {
   ],
 
   css: [
-    '@/assets/css/globals.css',
-    '@/assets/css/fonts.css',
-    '@/assets/css/grid.css'
+    '~assets/css/globals.css',
+    '~assets/css/fonts.css',
+    '~assets/css/grid.css'
   ],
 
   /*
