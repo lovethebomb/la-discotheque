@@ -22,8 +22,6 @@ export default {
 </script>
 
 <style lang="postcss">
-@import "~assets/css/_variables.css";
-
 .Menu {
   display: none;
   appearance: none;

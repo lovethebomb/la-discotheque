@@ -57,10 +57,6 @@ export default {
       return this.$store.state.isMobile
     }
   },
-
-  mounted() {
-    console.debug('sidebar mounted')
-  },
   methods: {
     onClick(e) {
       console.debug('onClick')
@@ -94,9 +90,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
-@import "~assets/css/_variables.css";
-
+<style>
 .Sidebar {
   position: fixed;
   width: 96px;

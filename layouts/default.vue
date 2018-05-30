@@ -64,7 +64,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 @import "~assets/css/_variables.css";
 
 html {
@@ -89,9 +89,14 @@ a {
   font-family: var(--font-stack-IBM-semibold);
   color: #0053FF;
   text-decoration: none;
+
+  &:hover {
+    color: red;
+  }
 }
 
 .container {
   padding-top: 40px;
 }
+
 </style>

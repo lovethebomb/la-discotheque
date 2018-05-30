@@ -24,8 +24,6 @@ export default {
 </script>
 
 <style lang="postcss">
-@import "~assets/css/_variables.css";
-
 .Wishlist {
   padding-top: var(--releaseListPadding);
 

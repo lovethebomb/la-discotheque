@@ -27,9 +27,6 @@ export default {
 </script>
 
 <style lang="postcss">
-@import "~assets/css/_variables.css";
-
-
 .ReleaseList {
   display: flex;
   flex-flow: row wrap;
