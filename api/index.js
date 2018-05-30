@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router()
+const apicache = require('apicache');
+const cache = apicache.middleware;
 
 const discogs = require('./discogs');
-
-const mockDiscogs = require('./__mocks__/collection.json')
+// const mockDiscogs = require('./__mocks__/collection.json')
 const config = require('./config.js');
+
+const DEFAULT_CACHE = "10 minutes"
 
 // Transform req & res to have the same API as express
 // So we can use res.status() & res.json()
@@ -19,18 +22,17 @@ router.use((req, res, next) => {
 
 const service = new discogs({ apiKey: config.DISCOGS_API_KEY, secret: config.DISCOGS_API_SECRET })
 
-router.get('/collection', async (req, res) => {
-  // const query = await service.getCollection('ltb_lucas');
-  const query = await mockDiscogs;
+router.get('/collection', cache(DEFAULT_CACHE), async (req, res) => {
+  const query = await service.getCollection('ltb_lucas');
   res.json(query)
 })
 
-router.get('/wantlist', async (req, res) => {
+router.get('/wantlist', cache(DEFAULT_CACHE), async (req, res) => {
   const query = await service.getWantlist(config.DISCOGS_USERNAME);
   res.json(query)
 })
 
-router.get('/releases/:id', async (req, res) => {
+router.get('/releases/:id', cache(DEFAULT_CACHE), async (req, res) => {
   const query = await service.getRelease(req.params.id);
   res.json(query)
 })
