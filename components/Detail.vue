@@ -6,6 +6,10 @@
     <div class="Detail__Content">
       <div class="Detail__Content__Left column is-4">
         <Cover :cover="cover"/>
+        <Related
+          :previous="previous"
+          :folder="folder"
+          :next="next" />
       </div>
       <div class="Detail__Content__Right column">
         <Pagination
@@ -27,6 +31,7 @@
 import { TweenLite, Power4 } from 'gsap';
 
 import Cover from '~/components/Detail/Cover';
+import Related from '~/components/Detail/Related';
 import Info from '~/components/Detail/Info';
 import Tracklist from '~/components/Detail/Tracklist';
 import Pagination from '~/components/Detail/Pagination';
@@ -34,6 +39,7 @@ import Pagination from '~/components/Detail/Pagination';
 export default {
   components: {
     Cover,
+    Related,
     Info,
     Tracklist,
     Pagination
@@ -62,6 +68,29 @@ export default {
     tracklist() { return this.release.tracklist ?
       this.release.tracklist :
       []
+    },
+
+    folder() {
+      return (this.$route.name.indexOf("wishlist") > -1 ? "wishlist" : "collection");
+    },
+
+    index() {
+      if (this.release.id) {
+          return this.$store.getters.getFolderIndexById(this.folder, this.release.id)
+      }
+      return false;
+    },
+    previous() {
+      if (this.index !== false) {
+        return this.$store.getters.getItemByIndex(this.folder, this.index - 1)
+      }
+      return false;
+    },
+    next() {
+      if (this.index !== false) {
+        return this.$store.getters.getItemByIndex(this.folder, this.index + 1)
+      }
+      return false;
     }
   },
   methods: {

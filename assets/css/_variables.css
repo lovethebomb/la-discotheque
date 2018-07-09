@@ -10,7 +10,7 @@
   --releaseItemWidth: 330px;
   --releaseItemHeight: 330px;
   --releaseItemOffset: 80px;
-  --releaseItemMargin: 0 100px 1em 0;
+  --releaseItemMargin: 0 0 1em 90px;
   --releaseTitleBackground: var(--colorBackground);
   --releaseDetailsText: var(--colorGrey);
 

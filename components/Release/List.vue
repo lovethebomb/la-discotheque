@@ -1,5 +1,7 @@
 <template>
-  <div class="ReleaseList">
+  <div
+    class="ReleaseList"
+    @resize="onResize">
     <ReleaseItem
       v-for="(release, index) in releases"
       :key="release.id"
@@ -13,6 +15,9 @@ import { TweenLite, Power4 } from 'gsap';
 
 import ReleaseItem from '~/components/Release/Item.vue';
 
+const MAX_WIDTH = 330;
+const MARGIN = 90;
+
 export default {
   components: {
     ReleaseItem
@@ -23,6 +28,38 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      columns: 0
+    }
+  },
+  mounted() {
+    this.onResize();
+    this.$root.$on('resize', this.onResize)
+  },
+  beforeDestroy() {
+    this.$root.$off('resize', this.onResize)
+  },
+  methods: {
+    onResize(vm) {
+      let width = this.$el.offsetWidth;
+      let items = width / (MAX_WIDTH + MARGIN)
+
+      if (~~items === this.columns) {
+        return;
+      }
+
+      this.columns = ~~items;
+
+      this.$children.map( (item, index) => {
+        if ((index % this.columns) === 1) {
+          item.hasOffset = true;
+          return;
+        }
+        item.hasOffset = false;
+      })
+    }
+  }
 }
 </script>
 
@@ -34,7 +71,7 @@ export default {
   .ReleaseItem {
     margin: var(--releaseItemMargin);
 
-    &:nth-child(even) {
+    &.has-offset {
       margin-top: var(--releaseItemOffset);
     }
   }

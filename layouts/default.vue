@@ -1,5 +1,7 @@
 <template>
-  <section class="container">
+  <section
+    :class="className"
+    @resize="testResize">
     <Menu />
     <Sidebar />
     <Content>
@@ -16,22 +18,8 @@ import Sidebar from '~/components/Sidebar.vue'
 import Content from '~/components/Content.vue'
 
 // We keep function separately here
-function testResize() {
-  if (window && window.innerWidth < 789) {
-    // if state is already mobile, skip
-    if (this.isMobile) {
-      return;
-    }
-
-    return this.$store.commit('SET_LAYOUT_MOBILE', true)
-  }
-
-  // if state is already desktop, skip
-  if (!this.isMobile) {
-    return;
-  }
-
-  return this.$store.commit('SET_LAYOUT_MOBILE', false)
+function emitResize() {
+  this.$root.$emit('resize');
 }
 
 export default {
@@ -43,6 +31,10 @@ export default {
   computed: {
     isMobile() {
       return this.$store.state.isMobile
+    },
+    className() {
+      let route = this.$route.name || 'default';
+      return `container page-${route}`;
     }
   },
   beforeDestroy: function () {
@@ -50,7 +42,7 @@ export default {
   },
   created() {
     if (!this.$isServer) {
-      testResize.apply(this);
+      emitResize.apply(this);
     }
   },
   mounted() {
@@ -59,7 +51,26 @@ export default {
     }
   },
   methods: {
-    handleResize: debounce(testResize, 50),
+    handleResize: debounce(emitResize, 50),
+    testResize() {
+      console.debug('testResize')
+      if (window && window.innerWidth < 789) {
+        // if state is already mobile, skip
+        if (this.isMobile) {
+          return;
+        }
+
+        return this.$store.commit('SET_LAYOUT_MOBILE', true)
+      }
+
+      // if state is already desktop, skip
+      if (!this.isMobile) {
+        return;
+      }
+
+      return this.$store.commit('SET_LAYOUT_MOBILE', false)
+    },
+
   }
 }
 </script>

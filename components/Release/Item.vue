@@ -54,13 +54,14 @@ export default {
   data() {
     return {
       isSelected: false,
+      hasOffset: false,
       isLoaded: false,
       timeout: false
     }
   },
 
   computed: {
-    className() { return `ReleaseItem ${this.isSelected ? 'is-selected' : ''}`; },
+    className() { return `ReleaseItem ${this.isSelected ? 'is-selected' : ''} ${this.hasOffset ? 'has-offset' : ''}`; },
     album() { return this.release.basic_information ?
       this.release.basic_information.title :
       "Album";
