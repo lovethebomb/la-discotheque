@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Sidebar.vue matches snapshot 1`] = `
-<div class="Sidebar">
+<div role="navigation" class="Sidebar">
   <!---->
   <ul class="Sidebar__Container">
     <li class="Sidebar__Group">

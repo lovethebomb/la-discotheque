@@ -1,5 +1,7 @@
 <template>
-  <div class="DetailItem__Related Related">
+  <div
+    class="DetailItem__Related Related"
+    role="complementary">
     <RelatedItem
       v-if="previous"
       :release="previous"

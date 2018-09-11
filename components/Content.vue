@@ -1,5 +1,7 @@
 <template>
-  <div class="Content">
+  <div
+    class="Content"
+    role="main">
     <slot />
   </div>
 </template>

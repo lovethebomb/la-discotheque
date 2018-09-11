@@ -5,7 +5,8 @@
     @enter="enter">
     <div
       v-show="isVisible"
-      class="Sidebar">
+      class="Sidebar"
+      role="navigation">
       <Logo />
       <ul class="Sidebar__Container">
         <li class="Sidebar__Group">
