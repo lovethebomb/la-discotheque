@@ -13,8 +13,6 @@ export default {
   },
   methods: {
     onClick() {
-      console.debug('menu pressed', this.isOpen)
-
       this.$store.commit('SET_SIDEBAR_VISIBLE', !this.isOpen)
     }
   }

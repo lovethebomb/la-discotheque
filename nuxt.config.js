@@ -14,12 +14,16 @@ module.exports = {
   */
   head: {
     title: 'La Discothèque - Discogs collection viewer',
+    htmlAttrs: {
+      lang: 'en',
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Fancy Discogs-powered collection viewer' },
-      { name: "og:type", content: "website" },
-      { name: "og:author", content: "Lucas Heymès @ltb_lucas, Inês Durão inesdurao.me" },
+      { name: 'og:type', content: 'website' },
+      { name: 'og:author', content: 'Lucas Heymès @ltb_lucas, Inês Durão inesdurao.me' },
+      { name: 'theme-color', content: '#212223' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

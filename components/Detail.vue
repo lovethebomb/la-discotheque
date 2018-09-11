@@ -104,14 +104,12 @@ export default {
     },
     // Animations
     beforeEnter(el) {
-      console.debug('beforeEnter')
       TweenLite.set(el, {
         y: 40,
         opacity: .01
       })
     },
     enter(el, done) {
-      console.debug('onEnter', el, this.index)
       TweenLite.to(el, .35, {
         y: 0,
         opacity: 1,

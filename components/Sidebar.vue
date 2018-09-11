@@ -59,7 +59,6 @@ export default {
   },
   methods: {
     onClick(e) {
-      console.debug('onClick')
       if (this.isMobile) {
         this.$store.commit('SET_SIDEBAR_VISIBLE', false)
       }
@@ -68,14 +67,12 @@ export default {
     },
     // Animations
     beforeEnter(el) {
-      console.debug('beforeEnter')
       TweenLite.set(el, {
         y: 40,
         opacity: .01
       })
     },
     enter(el, done) {
-      console.debug('onEnter', el)
       TweenLite.to(el, .35, {
         y: 0,
         opacity: 1,

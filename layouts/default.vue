@@ -1,7 +1,5 @@
 <template>
-  <section
-    :class="className"
-    @resize="testResize">
+  <section :class="className">
     <Menu />
     <Sidebar />
     <Content>
@@ -39,6 +37,7 @@ export default {
   },
   beforeDestroy: function () {
     window.removeEventListener('resize', this.handleResize)
+    this.$root.off('resize', this.testResize);
   },
   created() {
     if (!this.$isServer) {
@@ -48,12 +47,12 @@ export default {
   mounted() {
     if (!this.$isServer) {
       window.addEventListener('resize', this.handleResize)
+      this.$root.$on('resize', this.testResize);
     }
   },
   methods: {
-    handleResize: debounce(emitResize, 50),
+    handleResize: debounce(emitResize, 100),
     testResize() {
-      console.debug('testResize')
       if (window && window.innerWidth < 789) {
         // if state is already mobile, skip
         if (this.isMobile) {

@@ -16,7 +16,7 @@
 
   --releaseListPadding: 200px;
 
-  --font-stack-bluu-regular: "bluu", "inherit";
-  --font-stack-IBM-regular: "IBMPlexMono-Regular", "inherit";
-  --font-stack-IBM-semibold: "IBMPlexMono-SemiBold", "inherit";
+  --font-stack-bluu-regular: "bluu", sans-serif;
+  --font-stack-IBM-regular: "IBMPlexMono-Regular", monospace;
+  --font-stack-IBM-semibold: "IBMPlexMono-SemiBold", monospace;
 }
