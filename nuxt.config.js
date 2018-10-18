@@ -93,6 +93,12 @@ module.exports = {
   */
   loading: { color: '#0053ff' },
   /*
+  ** Plugins
+  */
+  plugins: [
+    { src: '~plugins/fathom.js', ssr: false }
+  ],
+  /*
   ** Build configuration
   */
   build: {
