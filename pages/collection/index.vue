@@ -19,6 +19,11 @@ export default {
     return {
       releases: store.state.collection.items
     }
+  },
+  head () {
+    return {
+      title: 'Collection - La Discothèque - Discogs collection viewer',
+    }
   }
 }
 </script>

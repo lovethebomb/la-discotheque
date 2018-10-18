@@ -28,6 +28,13 @@ export default {
       release: store.state.currentRelease,
       id: id
     }
+  },
+  head () {
+    const album = this.release.title;
+    const artist = this.release.artists.map(artist => artist.name).join(', ');
+    return {
+      title: `${album} by ${artist} - Collection - La Discothèque - Discogs collection viewer`,
+    }
   }
 }
 

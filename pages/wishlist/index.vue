@@ -19,6 +19,11 @@ export default {
     return {
       releases: store.state.wantlist.items
     }
+  },
+  head () {
+    return {
+      title: 'Wishlist - La Discothèque - Discogs collection viewer',
+    }
   }
 }
 </script>
