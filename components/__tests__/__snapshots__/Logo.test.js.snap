@@ -2,6 +2,9 @@
 
 exports[`Logo.vue matches snapshot 1`] = `
 <div role="banner" class="Logo">
-  <!---->
+  <nuxtlink-stub to="/" arialabel="Homepage" aria-label="Homepage">
+    <h1>La Discothèque</h1>
+    <img src="/img/svg/logo-notfinal.svg" alt="Logo - La Discothèque">
+  </nuxtlink-stub>
 </div>
 `;
