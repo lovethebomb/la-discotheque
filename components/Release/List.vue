@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import { TweenLite, Power4 } from 'gsap';
-
 import ReleaseItem from '~/components/Release/Item.vue';
 
 const MAX_WIDTH = 330;

@@ -122,9 +122,6 @@ export default {
     &.nuxt-link-active {
       font-family: "IBMPlexMono-SemiBold";
       color: #0053FF;
-      width: 100%;
-      text-align: center;
-      line-height: 96px;
     }
 
     &.nuxt-link-active:after {

@@ -15,6 +15,12 @@ import Menu from '~/components/Menu.vue'
 import Sidebar from '~/components/Sidebar.vue'
 import Content from '~/components/Content.vue'
 
+const debouncedResize = debounce(emitResize, 200);
+function emitResize() {
+  debouncedResize.flush();
+  this.$root.$emit('resize');
+}
+
 export default {
   components: {
     Menu,
@@ -36,14 +42,14 @@ export default {
   },
   created() {
     if (!this.$isServer) {
-      // emitResize.aply(this);
       this.testResize();
     }
   },
   mounted() {
     if (!this.$isServer) {
-      const debouncedResize = debounce(this.testResize, 100);
-      window.addEventListener('resize', debouncedResize)
+      const resize = debouncedResize.bind(this);
+      this.$root.$on('resize', this.testResize);
+      window.addEventListener('resize', resize)
     }
   },
   methods: {
