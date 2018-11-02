@@ -98,28 +98,46 @@ module.exports = {
   plugins: [
     { src: '~plugins/fathom.js', ssr: false }
   ],
+  module: {
+    rules: [
+      {
+        test: /\.postcss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader'
+          }
+        ]
+      }
+    ]
+  },
   /*
   ** Build configuration
   */
   build: {
     postcss: {
-      plugins: [
-        require('postcss-cssnext'),
-        require('postcss-nested')
-      ]
+      plugins: {
+        'postcss-preset-env': {},
+        'postcss-nested': {}
+      },
+      preset: {
+        stage: 2
+      }
     },
     /*
     ** Run ESLint on save
     */
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
+
+    // extend (config, { isDev, isClient }) {
+    //   if (isDev && isClient) {
+    //     config.module.rules.push({
+    //       enforce: 'pre',
+    //       test: /\.(js|vue)$/,
+    //       loader: 'eslint-loader',
+    //       exclude: /(node_modules)/
+    //     })
+    //   }
+    // }
   }
 }
