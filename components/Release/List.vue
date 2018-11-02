@@ -1,12 +1,14 @@
 <template>
   <div
     class="ReleaseList"
-    @resize="onResize">
+    @resize="onResize"
+  >
     <ReleaseItem
       v-for="(release, index) in releases"
       :key="release.id"
       :index="index"
-      :release="release" />
+      :release="release"
+    />
   </div>
 </template>
 
@@ -43,19 +45,23 @@ export default {
   methods: {
     onResize(vm) {
       let width = this.$el.offsetWidth;
-      let items = width / (MAX_WIDTH + MARGIN)
+      let items = ~~(width / (MAX_WIDTH + MARGIN));
 
-      if (~~items === this.columns) {
+      if (items === this.columns) {
         return;
       }
 
-      this.columns = ~~items;
+      this.columns = items % 2 ? items : 2;
 
       this.$children.map( (item, index) => {
-        if ((index % this.columns) === 1) {
+        let row = ~~(index / items);
+        let relativeIndex = index - (items * row);
+
+        if ((relativeIndex % this.columns) === 1) {
           item.hasOffset = true;
           return;
         }
+
         item.hasOffset = false;
       })
     }
@@ -63,13 +69,14 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="css">
 .ReleaseList {
   display: flex;
   flex-flow: row wrap;
 
   .ReleaseItem {
     margin: var(--releaseItemMargin);
+    transition: margin-top .15s ease-out;
 
     &.has-offset {
       margin-top: var(--releaseItemOffset);

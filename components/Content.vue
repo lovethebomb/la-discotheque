@@ -1,12 +1,13 @@
 <template>
   <div
     class="Content"
-    role="main">
+    role="main"
+  >
     <slot />
   </div>
 </template>
 
-<style lang="postcss">
+<style lang="css">
 .Content {
   margin-left: 146px;
   padding: 0 1em 0 70px;

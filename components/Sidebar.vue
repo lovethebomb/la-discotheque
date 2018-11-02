@@ -2,11 +2,13 @@
   <transition
     :css="false"
     @beforeEnter="beforeEnter"
-    @enter="enter">
+    @enter="enter"
+  >
     <div
       v-show="isVisible"
       class="Sidebar"
-      role="navigation">
+      role="navigation"
+    >
       <Logo />
       <ul class="Sidebar__Container">
         <li class="Sidebar__Group">
@@ -14,14 +16,16 @@
             class="Sidebar__Link"
             tag="div"
             to="/collection"
-            @click.native="onClick">
+            @click.native="onClick"
+          >
             <a>Collection</a>
           </nuxt-link>
           <nuxt-link
             class="Sidebar__Link"
             tag="div"
             to="/wishlist"
-            @click.native="onClick">
+            @click.native="onClick"
+          >
             <a>Wishlist</a>
           </nuxt-link>
         </li>
@@ -29,7 +33,8 @@
           class="Sidebar__Link"
           tag="li"
           to="/about"
-          @click.native="onClick">
+          @click.native="onClick"
+        >
           <a>About</a>
         </nuxt-link>
       </ul>

@@ -1,7 +1,8 @@
 <template>
   <button
     class="Menu"
-    @click="onClick">Menu</button>
+    @click="onClick"
+  >Menu</button>
 </template>
 
 <script>
@@ -19,7 +20,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="css">
 .Menu {
   display: none;
   appearance: none;

@@ -5,22 +5,26 @@
     </header> -->
     <div class="Detail__Content">
       <div class="Detail__Content__Left column is-4">
-        <Cover :cover="cover"/>
+        <Cover :cover="cover" />
         <Related
           :previous="previous"
           :folder="folder"
-          :next="next" />
+          :next="next"
+        />
       </div>
       <div class="Detail__Content__Right column">
         <Pagination
           v-if="false"
-          class="is-12"/>
+          class="is-12"
+        />
         <Info
           :release="release"
-          class="Detail__Info column is-6" />
+          class="Detail__Info column is-6"
+        />
         <Tracklist
           :tracklist="tracklist"
-          class="Detail__Tracklist column is-6"/>
+          class="Detail__Tracklist column is-6"
+        />
       </div>
     </div>
   </div>
@@ -125,7 +129,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="css">
 .Detail {
   margin: auto;
 }

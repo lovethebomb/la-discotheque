@@ -1,7 +1,7 @@
 <template>
   <div class="Info">
     <p class="Info__Extra btn">{{ country }} {{ year }}</p>
-    <Title
+    <DetailTitle
       :album="album"
       :artist="artist"
       class="Info__Title" />
@@ -14,17 +14,18 @@
       :href="discogsURI"
       class="btn Info__DiscogsLink"
       target="_blank"
-      rel="noopener">See on Discogs</a>
+      rel="noopener"
+    >See on Discogs</a>
   </div>
 
 </template>
 
 <script>
-import Title from '~/components/Detail/Title';
+import DetailTitle from '~/components/Detail/Title';
 
 export default {
   components: {
-    Title
+    DetailTitle
   },
   props: {
     release: {
@@ -79,7 +80,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="css">
 
 
 .Info {

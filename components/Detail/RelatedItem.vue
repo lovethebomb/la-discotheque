@@ -2,12 +2,14 @@
   <div class="Related__Item">
     <nuxt-link
       :to="releaseRoute"
-      class="Related__Item__Link">
+      class="Related__Item__Link"
+    >
       {{ album }} by {{ artist }}
     </nuxt-link>
     <Cover
       :cover="cover"
-      class="Related__Item__Cover"/>
+      class="Related__Item__Cover"
+    />
     <p>{{ release.basic_information.title }}</p>
   </div>
 </template>

@@ -2,21 +2,25 @@
   <transition
     :css="false"
     @beforeEnter="beforeEnter"
-    @enter="enter">
+    @enter="enter"
+  >
     <div
       v-show="isLoaded"
       :class="className"
       @mouseout="onDeselect"
-      @mouseover="onSelect">
+      @mouseover="onSelect"
+    >
       <nuxt-link
         :to="releaseRoute"
-        class="ReleaseItem__Link">
+        class="ReleaseItem__Link"
+      >
         {{ album }} by {{ artist }}
       </nuxt-link>
       <div
         ref="image"
         :data-src="cover"
-        class="ReleaseItem__Image"/>
+        class="ReleaseItem__Image"
+      />
       <div class="ReleaseItem__Title">
         <p class="ReleaseItem__Album">
           <span>{{ album }}</span>
@@ -130,7 +134,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="css">
 .ReleaseItem {
   position: relative;
   width: 100%;
@@ -177,7 +181,7 @@ export default {
   .ReleaseItem__Title {
     position: absolute;
     bottom: 40px;
-    left: -26px;
+    left: -20px;
     z-index: 1;
   }
 
@@ -190,7 +194,7 @@ export default {
     z-index: 1;
 
     span {
-      padding: 0px 6px 2px 6px;
+      padding: 0px 6px 2px 0px;
     }
   }
 
@@ -203,7 +207,7 @@ export default {
     z-index: 1;
 
     span {
-      padding: 4px 6px 2px 6px;
+      padding: 4px 6px 2px 0px;
     }
   }
 

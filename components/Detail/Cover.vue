@@ -2,7 +2,8 @@
   <div class="DetailItem__Image">
     <img
       ref="image"
-      :data-src="cover">
+      :data-src="cover"
+    >
   </div>
 </template>
 

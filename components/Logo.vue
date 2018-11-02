@@ -1,15 +1,18 @@
 <template>
   <div
     class="Logo"
-    role="banner">
+    role="banner"
+  >
     <nuxt-link
       to="/"
       aria-label="Homepage"
-      @click.native="onClick">
+      @click.native="onClick"
+    >
       <h1>La Discothèque</h1>
       <img
         src="/img/svg/logo-notfinal.svg"
-        alt="Logo - La Discothèque">
+        alt="Logo - La Discothèque"
+      >
     </nuxt-link>
   </div>
 </template>

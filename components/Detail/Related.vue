@@ -1,17 +1,20 @@
 <template>
   <div
     class="DetailItem__Related Related"
-    role="complementary">
+    role="complementary"
+  >
     <RelatedItem
       v-if="previous"
       :release="previous"
       :folder="folder"
-      class="Related__Previous" />
+      class="Related__Previous"
+    />
     <RelatedItem
       v-if="next"
       :release="next"
       :folder="folder"
-      class="Related__Next" />
+      class="Related__Next"
+    />
   </div>
 </template>
 

@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="css">
 .Title {
     color: var(--colorText);
 

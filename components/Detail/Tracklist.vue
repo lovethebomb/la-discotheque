@@ -2,13 +2,14 @@
   <div class="Tracklist">
     <div class="Tracklist__Header">
       <h3>Tracklist</h3>
-      <img src="/img/svg/Tracklist-img.svg" >
+      <img src="/img/svg/Tracklist-img.svg">
     </div>
     <ul>
       <li
         v-for="track in tracklist"
         :key="track.position"
-        class="Track">
+        class="Track"
+      >
         <span class="Track__Position">{{ track.position }}</span>
         <span class="Track__Title">{{ track.title }}</span>
       </li>
@@ -27,7 +28,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="css">
 .Tracklist {
   position: relative;
 }

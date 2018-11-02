@@ -3,7 +3,7 @@
     <Menu />
     <Sidebar />
     <Content>
-      <nuxt/>
+      <nuxt />
     </Content>
   </section>
 </template>
@@ -14,11 +14,6 @@ import debounce from 'debounce';
 import Menu from '~/components/Menu.vue'
 import Sidebar from '~/components/Sidebar.vue'
 import Content from '~/components/Content.vue'
-
-// We keep function separately here
-function emitResize() {
-  this.$root.$emit('resize');
-}
 
 export default {
   components: {
@@ -41,17 +36,17 @@ export default {
   },
   created() {
     if (!this.$isServer) {
-      emitResize.apply(this);
+      // emitResize.aply(this);
+      this.testResize();
     }
   },
   mounted() {
     if (!this.$isServer) {
-      window.addEventListener('resize', this.handleResize)
-      this.$root.$on('resize', this.testResize);
+      const debouncedResize = debounce(this.testResize, 100);
+      window.addEventListener('resize', debouncedResize)
     }
   },
   methods: {
-    handleResize: debounce(emitResize, 100),
     testResize() {
       if (window && window.innerWidth < 789) {
         // if state is already mobile, skip
@@ -74,8 +69,8 @@ export default {
 }
 </script>
 
-<style lang="postcss">
-@import "~assets/css/_variables.css";
+<style lang="css">
+@import "~/assets/css/_variables.css";
 
 html {
   font-family: var(--font-stack-IBM-regular);
