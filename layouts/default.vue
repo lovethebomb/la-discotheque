@@ -15,9 +15,7 @@ import Menu from '~/components/Menu.vue'
 import Sidebar from '~/components/Sidebar.vue'
 import Content from '~/components/Content.vue'
 
-const debouncedResize = debounce(emitResize, 200);
 function emitResize() {
-  debouncedResize.flush();
   this.$root.$emit('resize');
 }
 
@@ -37,7 +35,7 @@ export default {
     }
   },
   beforeDestroy: function () {
-    window.removeEventListener('resize', this.handleResize)
+    window.removeEventListener('resize', this.debouncedResize)
     this.$root.off('resize', this.testResize);
   },
   created() {
@@ -47,12 +45,12 @@ export default {
   },
   mounted() {
     if (!this.$isServer) {
-      const resize = debouncedResize.bind(this);
       this.$root.$on('resize', this.testResize);
-      window.addEventListener('resize', resize)
+      window.addEventListener('resize', this.debouncedResize)
     }
   },
   methods: {
+    debouncedResize: debounce(emitResize, 100),
     testResize() {
       if (window && window.innerWidth < 789) {
         // if state is already mobile, skip
