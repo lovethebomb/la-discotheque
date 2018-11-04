@@ -1,12 +1,8 @@
 module.exports = {
+  mode: 'universal',
+
   serverMiddleware: [
     "~/api"
-  ],
-
-  css: [
-    '~assets/css/globals.css',
-    '~assets/css/fonts.css',
-    '~assets/css/grid.css'
   ],
 
   /*
@@ -92,6 +88,13 @@ module.exports = {
   ** Customize the progress bar color
   */
   loading: { color: '#0053ff' },
+
+  css: [
+    '~assets/css/globals.css',
+    '~assets/css/fonts.css',
+    '~assets/css/grid.css'
+  ],
+
   /*
   ** Plugins
   */
@@ -126,11 +129,11 @@ module.exports = {
       }
     },
     /*
-    ** Run ESLint on save
+    ** You can extend webpack config here
     */
-
-    // extend (config, { isDev, isClient }) {
-    //   if (isDev && isClient) {
+    // extend(config, ctx) {
+    //   // Run ESLint on save
+    //   if (ctx.isDev && ctx.isClient) {
     //     config.module.rules.push({
     //       enforce: 'pre',
     //       test: /\.(js|vue)$/,
