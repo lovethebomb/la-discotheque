@@ -12,8 +12,6 @@ ENV BASE_URL=http://localhost:${PORT}
 RUN mkdir /app
 WORKDIR /app
 
-RUN npm install -g npm@v6.0.1
-
 COPY package.json package-lock.json /app/
 RUN npm ci
 
