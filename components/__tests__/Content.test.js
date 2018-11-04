@@ -6,7 +6,7 @@ describe('Content.vue', () => {
   it('renders <slot> properly', () => {
     const wrapper = shallowMount(Content, {
       slots: {
-        default: [ 'Hello world' ]
+        default: ['Hello world']
       }
     })
     expect(wrapper.find('slot'))

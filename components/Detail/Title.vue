@@ -15,7 +15,7 @@ export default {
     artist: {
       type: String,
       required: true
-    },
+    }
   }
 }
 </script>

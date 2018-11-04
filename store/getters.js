@@ -1,54 +1,56 @@
 const getters = {
-  getItemById: ( state ) => (folderName, id) => {
+  getItemById: state => (folderName, id) => {
     if (!folderName) {
-      console.error('[store][getters] getItemById - missing arg folderName');
-      return;
+      console.error('[store][getters] getItemById - missing arg folderName')
+      return
     }
 
-    folderName = folderName === "wishlist" ? "wantlist" : folderName;
+    folderName = folderName === 'wishlist' ? 'wantlist' : folderName
 
-    const folder = state[folderName];
+    const folder = state[folderName]
     if (folder.items && folder.items.length > 0) {
-      return folder.items.filter( item => item.id == id)[0]
+      return folder.items.filter(item => item.id == id)[0]
     }
-    return false;
+    return false
   },
 
-  getItemByIndex: ( state ) => (folderName, index) => {
+  getItemByIndex: state => (folderName, index) => {
     if (!folderName) {
-      console.error('[store][getters] getItemByIndex - missing arg folderName');
-      return;
+      console.error('[store][getters] getItemByIndex - missing arg folderName')
+      return
     }
 
-    folderName = folderName === "wishlist" ? "wantlist" : folderName;
+    folderName = folderName === 'wishlist' ? 'wantlist' : folderName
 
-    const folder = state[folderName];
+    const folder = state[folderName]
     if (folder.items && folder.items.length > 0) {
       return folder.items[index]
     }
-    return false;
+    return false
   },
 
-  getFolderIndexById: ( state ) => (folderName, id) => {
+  getFolderIndexById: state => (folderName, id) => {
     if (!folderName) {
-      console.error('[store][getters] getFolderIndexById - missing arg folderName');
-      return;
+      console.error(
+        '[store][getters] getFolderIndexById - missing arg folderName'
+      )
+      return
     }
 
-    folderName = folderName === "wishlist" ? "wantlist" : folderName;
+    folderName = folderName === 'wishlist' ? 'wantlist' : folderName
 
-    const folder = state[folderName];
+    const folder = state[folderName]
     if (folder.items && folder.items.length > 0) {
-      return folder.items.findIndex( item => item.id == id)
+      return folder.items.findIndex(item => item.id == id)
     }
-    return false;
+    return false
   },
 
-  collectionItemsCount: (state) => {
+  collectionItemsCount: state => {
     return state.collection.items.length
   },
 
-  wantlistItemsCount: (state) => {
+  wantlistItemsCount: state => {
     return state.wantlist.items.length
   }
 }

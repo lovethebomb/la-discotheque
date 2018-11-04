@@ -43,13 +43,13 @@
 </template>
 
 <script>
-import { TweenLite, Power4 } from 'gsap';
+import { TweenLite, Power4 } from 'gsap'
 
 import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
-    Logo,
+    Logo
   },
   computed: {
     isVisible() {
@@ -69,17 +69,17 @@ export default {
         this.$store.commit('SET_SIDEBAR_VISIBLE', false)
       }
 
-      return true;
+      return true
     },
     // Animations
     beforeEnter(el) {
       TweenLite.set(el, {
         y: 40,
-        opacity: .01
+        opacity: 0.01
       })
     },
     enter(el, done) {
-      TweenLite.to(el, .35, {
+      TweenLite.to(el, 0.35, {
         y: 0,
         opacity: 1,
 
@@ -112,7 +112,7 @@ export default {
   }
 
   .Sidebar__Link {
-    font-family: "IBMPlexMono-Regular";
+    font-family: 'IBMPlexMono-Regular';
     width: 100%;
     text-align: center;
     line-height: 96px;
@@ -120,8 +120,8 @@ export default {
     position: relative;
 
     &.nuxt-link-active {
-      font-family: "IBMPlexMono-SemiBold";
-      color: #0053FF;
+      font-family: 'IBMPlexMono-SemiBold';
+      color: #0053ff;
     }
 
     &.nuxt-link-active:after {
@@ -129,10 +129,9 @@ export default {
     }
 
     &:last-of-type {
-      font-family: "IBMPlexMono-SemiBold";
+      font-family: 'IBMPlexMono-SemiBold';
       align-self: flex-end;
     }
-
 
     a {
       display: block;
@@ -162,7 +161,7 @@ export default {
     background: var(--colorBackground);
 
     .Logo {
-      margin: 40px auto ;
+      margin: 40px auto;
     }
 
     .Sidebar__Container {

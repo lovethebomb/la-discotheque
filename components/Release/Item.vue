@@ -39,8 +39,8 @@
 
 
 <script>
-import { TweenLite, Power4 } from 'gsap';
-import slugify from 'slugify';
+import { TweenLite, Power4 } from 'gsap'
+import slugify from 'slugify'
 
 export default {
   props: {
@@ -65,61 +65,74 @@ export default {
   },
 
   computed: {
-    className() { return `ReleaseItem ${this.isSelected ? 'is-selected' : ''} ${this.hasOffset ? 'has-offset' : ''}`; },
-    album() { return this.release.basic_information ?
-      this.release.basic_information.title :
-      "Album";
+    className() {
+      return `ReleaseItem ${this.isSelected ? 'is-selected' : ''} ${
+        this.hasOffset ? 'has-offset' : ''
+      }`
     },
-    artist() { return this.release.basic_information ?
-      this.release.basic_information.artists.map(artist => artist.name).join(', ') :
-      "Artist";
+    album() {
+      return this.release.basic_information
+        ? this.release.basic_information.title
+        : 'Album'
     },
-    cover() { return this.release.basic_information ?
-      this.release.basic_information.cover_image :
-      "";
+    artist() {
+      return this.release.basic_information
+        ? this.release.basic_information.artists
+            .map(artist => artist.name)
+            .join(', ')
+        : 'Artist'
     },
-    label() { return this.release.basic_information ?
-      this.release.basic_information.labels.map(label => label.name).join(', ') :
-      "";
+    cover() {
+      return this.release.basic_information
+        ? this.release.basic_information.cover_image
+        : ''
+    },
+    label() {
+      return this.release.basic_information
+        ? this.release.basic_information.labels
+            .map(label => label.name)
+            .join(', ')
+        : ''
     },
     releaseRoute() {
-      const slug = slugify(`${this.album.substring(0, 32)}-by-${this.artist.substring(0,32)}`)
-      const route = this.$route.name || "collection";
-      return `/${route}/${this.release.id}-${slug}`;
+      const slug = slugify(
+        `${this.album.substring(0, 32)}-by-${this.artist.substring(0, 32)}`
+      )
+      const route = this.$route.name || 'collection'
+      return `/${route}/${this.release.id}-${slug}`
     }
   },
   mounted() {
-    this.$nextTick(this.loadImage);
+    this.$nextTick(this.loadImage)
     // this.loadImage()
   },
   methods: {
     // Logic
     loadImage() {
-      const self = this;
-      const img = new Image();
+      const self = this
+      const img = new Image()
       img.onload = () => {
-        this.$refs.image.style.backgroundImage = `url('${self.cover}'`;
+        this.$refs.image.style.backgroundImage = `url('${self.cover}'`
         self.$set(this, 'isLoaded', true)
       }
-      img.src = self.cover;
+      img.src = self.cover
     },
     // Events
     onSelect(e, b, c) {
-      this.$set(this, 'isSelected', true);
-
+      this.$set(this, 'isSelected', true)
     },
     onDeselect(e, b, c) {
-        this.$set(this, 'isSelected', false);
+      this.$set(this, 'isSelected', false)
     },
     // Animations
     beforeEnter(el) {
       TweenLite.set(el, {
         y: 40,
-        opacity: .01
+        opacity: 0.01
       })
     },
     enter(el, done) {
-      TweenLite.to(el, .35, {
+      TweenLite.to(el, 0.35, {
         y: 0,
         opacity: 1,
         delay: this.index / 4,

@@ -13,7 +13,7 @@ export default {
     cover: {
       type: String,
       required: true
-    },
+    }
   },
   data() {
     return {
@@ -21,20 +21,20 @@ export default {
     }
   },
   mounted() {
-    this.loadImage();
+    this.loadImage()
   },
   methods: {
     loadImage() {
-      const self = this;
-      const img = new Image();
+      const self = this
+      const img = new Image()
       img.onload = () => {
-        this.$refs.image.src = self.cover;
-        TweenLite.to(this.$refs.image, .25, {
+        this.$refs.image.src = self.cover
+        TweenLite.to(this.$refs.image, 0.25, {
           opacity: 1
         })
         self.$set(this, 'isLoaded', true)
       }
-      img.src = self.cover;
+      img.src = self.cover
     }
   }
 }
@@ -45,7 +45,7 @@ export default {
   width: 100%;
   height: 100%;
   max-width: 450px;
-  max-height: 450px
+  max-height: 450px;
 }
 
 .DetailItem__Image img {

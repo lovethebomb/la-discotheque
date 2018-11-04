@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import ReleaseItem from '~/components/Release/Item.vue';
+import ReleaseItem from '~/components/Release/Item.vue'
 
-const MAX_WIDTH = 330;
-const MARGIN = 90;
+const MAX_WIDTH = 330
+const MARGIN = 90
 
 export default {
   components: {
@@ -34,7 +34,7 @@ export default {
     }
   },
   mounted() {
-    this.onResize();
+    this.onResize()
     this.$root.$on('resize', this.onResize)
   },
   beforeDestroy() {
@@ -42,25 +42,25 @@ export default {
   },
   methods: {
     onResize(vm) {
-      let width = this.$el.offsetWidth;
-      let items = ~~(width / (MAX_WIDTH + MARGIN));
+      let width = this.$el.offsetWidth
+      let items = ~~(width / (MAX_WIDTH + MARGIN))
 
       if (items === this.columns) {
-        return;
+        return
       }
 
-      this.columns = items % 2 ? items : 2;
+      this.columns = items % 2 ? items : 2
 
-      this.$children.map( (item, index) => {
-        let row = ~~(index / items);
-        let relativeIndex = index - (items * row);
+      this.$children.map((item, index) => {
+        let row = ~~(index / items)
+        let relativeIndex = index - items * row
 
-        if ((relativeIndex % this.columns) === 1) {
-          item.hasOffset = true;
-          return;
+        if (relativeIndex % this.columns === 1) {
+          item.hasOffset = true
+          return
         }
 
-        item.hasOffset = false;
+        item.hasOffset = false
       })
     }
   }
@@ -92,5 +92,3 @@ export default {
   }
 }
 </style>
-
-

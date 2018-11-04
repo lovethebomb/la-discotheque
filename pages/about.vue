@@ -7,9 +7,9 @@
 
 <script>
 export default {
-  head () {
+  head() {
     return {
-      title: `About - La Discothèque - Discogs collection viewer`,
+      title: `About - La Discothèque - Discogs collection viewer`
     }
   }
 }
@@ -18,7 +18,7 @@ export default {
 <style>
 .About {
   max-width: 345px;
-  text-align:center;
+  text-align: center;
   line-height: 21px;
   position: absolute;
   top: 0;

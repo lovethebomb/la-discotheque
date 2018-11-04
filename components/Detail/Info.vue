@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import DetailTitle from '~/components/Detail/Title';
+import DetailTitle from '~/components/Detail/Title'
 
 export default {
   components: {
@@ -34,48 +34,53 @@ export default {
     }
   },
   computed: {
-    album() { return this.release.title ?
-      this.release.title :
-      "Album";
+    album() {
+      return this.release.title ? this.release.title : 'Album'
     },
-    artist() { return this.release.artists ?
-      this.release.artists.map(artist => artist.name).join(', ') :
-      "Artist";
+    artist() {
+      return this.release.artists
+        ? this.release.artists.map(artist => artist.name).join(', ')
+        : 'Artist'
     },
-    country() { return this.release.country },
-    discogsURI() { return this.release.uri },
+    country() {
+      return this.release.country
+    },
+    discogsURI() {
+      return this.release.uri
+    },
     formatText() {
       if (this.release.formats) {
-        const format = this.release.formats[0];
-        const description = format.descriptions.join(' ');
+        const format = this.release.formats[0]
+        const description = format.descriptions.join(' ')
         if (this.release.format_quantity >= 2) {
-          return `${this.release.format_quantity}x${description}`;
+          return `${this.release.format_quantity}x${description}`
         }
-        return description;
+        return description
       }
-      return "Formats";
+      return 'Formats'
     },
-    labels() { return this.release.labels ?
-      this.release.labels.map(label => label.name).join(', ') :
-      "Labels";
+    labels() {
+      return this.release.labels
+        ? this.release.labels.map(label => label.name).join(', ')
+        : 'Labels'
     },
     labelText() {
       if (this.release.labels) {
         // TODO handle multiple labels/numbers
-        const label = this.release.labels[0];
-        return `${label.name} - ${label.catno}`;
+        const label = this.release.labels[0]
+        return `${label.name} - ${label.catno}`
       }
-      return ""
+      return ''
     },
-    genres() { return this.release.genres ?
-      this.release.genres.join(', ') :
-      "Genres";
+    genres() {
+      return this.release.genres ? this.release.genres.join(', ') : 'Genres'
     },
-    styles() { return this.release.styles ?
-      this.release.styles.join(', ') :
-      "Styles";
+    styles() {
+      return this.release.styles ? this.release.styles.join(', ') : 'Styles'
     },
-    year() { return this.release.year }
+    year() {
+      return this.release.year
+    }
   }
 }
 </script>

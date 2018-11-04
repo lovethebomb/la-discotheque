@@ -5,7 +5,9 @@ import Logo from '~/components/Logo.vue'
 
 describe('Logo.vue', () => {
   beforeEach(() => {
-    Logo.components = Object.assign(Logo.components || {}, { 'NuxtLink': NuxtLink})
+    Logo.components = Object.assign(Logo.components || {}, {
+      NuxtLink: NuxtLink
+    })
   })
 
   it('renders nuxt-link correctly', () => {

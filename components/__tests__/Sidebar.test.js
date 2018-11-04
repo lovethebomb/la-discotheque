@@ -13,7 +13,9 @@ describe('Sidebar.vue', () => {
 
   beforeEach(() => {
     store = createStore()
-    Sidebar.components = Object.assign(Sidebar.components || {}, { 'NuxtLink': NuxtLink})
+    Sidebar.components = Object.assign(Sidebar.components || {}, {
+      NuxtLink: NuxtLink
+    })
   })
 
   it('matches snapshot', () => {

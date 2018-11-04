@@ -19,12 +19,11 @@
 </template>
 
 <script>
-
-import RelatedItem from '~/components/Detail/RelatedItem';
+import RelatedItem from '~/components/Detail/RelatedItem'
 
 export default {
   components: {
-    RelatedItem,
+    RelatedItem
   },
   props: {
     previous: {
@@ -47,8 +46,7 @@ export default {
       isLoaded: false
     }
   },
-  mounted() {
-  },
+  mounted() {}
 }
 </script>
 

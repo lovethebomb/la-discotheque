@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import debounce from 'debounce';
+import debounce from 'debounce'
 
 import Menu from '~/components/Menu.vue'
 import Sidebar from '~/components/Sidebar.vue'
 import Content from '~/components/Content.vue'
 
 function emitResize() {
-  this.$root.$emit('resize');
+  this.$root.$emit('resize')
 }
 
 export default {
@@ -30,22 +30,22 @@ export default {
       return this.$store.state.isMobile
     },
     className() {
-      let route = this.$route.name || 'default';
-      return `container page-${route}`;
+      let route = this.$route.name || 'default'
+      return `container page-${route}`
     }
   },
-  beforeDestroy: function () {
+  beforeDestroy: function() {
     window.removeEventListener('resize', this.debouncedResize)
-    this.$root.off('resize', this.testResize);
+    this.$root.off('resize', this.testResize)
   },
   created() {
     if (!this.$isServer) {
-      this.testResize();
+      this.testResize()
     }
   },
   mounted() {
     if (!this.$isServer) {
-      this.$root.$on('resize', this.testResize);
+      this.$root.$on('resize', this.testResize)
       window.addEventListener('resize', this.debouncedResize)
     }
   },
@@ -55,7 +55,7 @@ export default {
       if (window && window.innerWidth < 789) {
         // if state is already mobile, skip
         if (this.isMobile) {
-          return;
+          return
         }
 
         return this.$store.commit('SET_LAYOUT_MOBILE', true)
@@ -63,12 +63,11 @@ export default {
 
       // if state is already desktop, skip
       if (!this.isMobile) {
-        return;
+        return
       }
 
       return this.$store.commit('SET_LAYOUT_MOBILE', false)
-    },
-
+    }
   }
 }
 </script>

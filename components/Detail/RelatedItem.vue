@@ -15,13 +15,13 @@
 </template>
 
 <script>
-import slugify from 'slugify';
+import slugify from 'slugify'
 
-import Cover from '~/components/Detail/Cover';
+import Cover from '~/components/Detail/Cover'
 
 export default {
   components: {
-    Cover,
+    Cover
   },
   props: {
     release: {
@@ -39,23 +39,30 @@ export default {
     }
   },
   computed: {
-    album() { return this.release.basic_information ?
-      this.release.basic_information.title :
-      "Album";
+    album() {
+      return this.release.basic_information
+        ? this.release.basic_information.title
+        : 'Album'
     },
-    artist() { return this.release.basic_information ?
-      this.release.basic_information.artists.map(artist => artist.name).join(', ') :
-      "Artist";
+    artist() {
+      return this.release.basic_information
+        ? this.release.basic_information.artists
+            .map(artist => artist.name)
+            .join(', ')
+        : 'Artist'
     },
-    cover() { return this.release.basic_information.cover_image ?
-      this.release.basic_information.cover_image :
-      "";
+    cover() {
+      return this.release.basic_information.cover_image
+        ? this.release.basic_information.cover_image
+        : ''
     },
     releaseRoute() {
-      const slug = slugify(`${this.album.substring(0, 32)}-by-${this.artist.substring(0,32)}`)
-      return `/${this.folder}/${this.release.id}-${slug}`;
+      const slug = slugify(
+        `${this.album.substring(0, 32)}-by-${this.artist.substring(0, 32)}`
+      )
+      return `/${this.folder}/${this.release.id}-${slug}`
     }
-  },
+  }
 }
 </script>
 

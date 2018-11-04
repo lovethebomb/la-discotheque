@@ -32,13 +32,13 @@
 
 
 <script>
-import { TweenLite, Power4 } from 'gsap';
+import { TweenLite, Power4 } from 'gsap'
 
-import Cover from '~/components/Detail/Cover';
-import Related from '~/components/Detail/Related';
-import Info from '~/components/Detail/Info';
-import Tracklist from '~/components/Detail/Tracklist';
-import Pagination from '~/components/Detail/Pagination';
+import Cover from '~/components/Detail/Cover'
+import Related from '~/components/Detail/Related'
+import Info from '~/components/Detail/Info'
+import Tracklist from '~/components/Detail/Tracklist'
+import Pagination from '~/components/Detail/Pagination'
 
 export default {
   components: {
@@ -58,63 +58,64 @@ export default {
 
   data() {
     return {
-      isLoaded: true,
+      isLoaded: true
     }
   },
 
   computed: {
-
-    cover() { return this.release.images ?
-      this.release.images[0].resource_url :
-      "";
+    cover() {
+      return this.release.images ? this.release.images[0].resource_url : ''
     },
 
-    tracklist() { return this.release.tracklist ?
-      this.release.tracklist :
-      []
+    tracklist() {
+      return this.release.tracklist ? this.release.tracklist : []
     },
 
     folder() {
-      return (this.$route.name.indexOf("wishlist") > -1 ? "wishlist" : "collection");
+      return this.$route.name.indexOf('wishlist') > -1
+        ? 'wishlist'
+        : 'collection'
     },
 
     index() {
       if (this.release.id) {
-          return this.$store.getters.getFolderIndexById(this.folder, this.release.id)
+        return this.$store.getters.getFolderIndexById(
+          this.folder,
+          this.release.id
+        )
       }
-      return false;
+      return false
     },
     previous() {
       if (this.index !== false) {
         return this.$store.getters.getItemByIndex(this.folder, this.index - 1)
       }
-      return false;
+      return false
     },
     next() {
       if (this.index !== false) {
         return this.$store.getters.getItemByIndex(this.folder, this.index + 1)
       }
-      return false;
+      return false
     }
   },
   methods: {
     // Events
     onSelect(e, b, c) {
-      this.$set(this, 'isSelected', true);
-
+      this.$set(this, 'isSelected', true)
     },
     onDeselect(e, b, c) {
-        this.$set(this, 'isSelected', false);
+      this.$set(this, 'isSelected', false)
     },
     // Animations
     beforeEnter(el) {
       TweenLite.set(el, {
         y: 40,
-        opacity: .01
+        opacity: 0.01
       })
     },
     enter(el, done) {
-      TweenLite.to(el, .35, {
+      TweenLite.to(el, 0.35, {
         y: 0,
         opacity: 1,
         delay: this.index / 4,

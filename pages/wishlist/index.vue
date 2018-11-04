@@ -5,24 +5,24 @@
 </template>
 
 <script>
-import ReleaseList from '~/components/Release/List.vue';
+import ReleaseList from '~/components/Release/List.vue'
 
 export default {
   components: {
     ReleaseList
   },
-  async asyncData ({ store }) {
+  async asyncData({ store }) {
     if (!store.state.wantlist.isLoaded) {
-      await store.dispatch('GET_WANTLIST');
+      await store.dispatch('GET_WANTLIST')
     }
 
     return {
       releases: store.state.wantlist.items
     }
   },
-  head () {
+  head() {
     return {
-      title: 'Wishlist - La Discothèque - Discogs collection viewer',
+      title: 'Wishlist - La Discothèque - Discogs collection viewer'
     }
   }
 }

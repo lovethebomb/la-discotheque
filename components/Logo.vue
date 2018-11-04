@@ -30,7 +30,7 @@ export default {
         this.$store.commit('SET_SIDEBAR_VISIBLE', false)
       }
 
-      return true;
+      return true
     }
   }
 }
@@ -43,7 +43,7 @@ export default {
 }
 
 .Logo a {
-  color:inherit;
+  color: inherit;
 }
 
 .Logo h1 {
