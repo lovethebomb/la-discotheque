@@ -1,9 +1,7 @@
 module.exports = {
   mode: 'universal',
 
-  serverMiddleware: [
-    "~/api"
-  ],
+  serverMiddleware: ['~/api'],
 
   /*
   ** Headers of the page
@@ -11,23 +9,29 @@ module.exports = {
   head: {
     title: 'La Discothèque - Discogs collection viewer',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Fancy Discogs-powered collection viewer' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Fancy Discogs-powered collection viewer'
+      },
       { name: 'og:type', content: 'website' },
-      { name: 'og:author', content: 'Lucas Heymès @ltb_lucas, Inês Durão inesdurao.me' },
-      { name: 'theme-color', content: '#212223' },
+      {
+        name: 'og:author',
+        content: 'Lucas Heymès @ltb_lucas, Inês Durão inesdurao.me'
+      },
+      { name: 'theme-color', content: '#212223' }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     __dangerouslyDisableSanitizers: ['script'],
-    script: [{
-      vmid: 'json-ld',
-      innerHTML: `{
+    script: [
+      {
+        vmid: 'json-ld',
+        innerHTML: `{
         "@context": "http://schema.org/",
         "@type": "CreativeWork",
         "name": "disco.lucas.computer - a fancy Discogs collection viewer",
@@ -81,8 +85,9 @@ module.exports = {
           },
         ]
       }`,
-      type: 'application/ld+json'
-    }]
+        type: 'application/ld+json'
+      }
+    ]
   },
   /*
   ** Customize the progress bar color
@@ -98,9 +103,7 @@ module.exports = {
   /*
   ** Plugins
   */
-  plugins: [
-    { src: '~plugins/fathom.js', ssr: false }
-  ],
+  plugins: [{ src: '~plugins/fathom.js', ssr: false }],
   module: {
     rules: [
       {
@@ -127,7 +130,7 @@ module.exports = {
       preset: {
         stage: 2
       }
-    },
+    }
     /*
     ** You can extend webpack config here
     */

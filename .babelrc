@@ -1,18 +1,17 @@
 {
   "presets": [
-    ["env", { "modules": false }]
+    ["@babel/preset-env", { "modules": false }]
   ],
   "env": {
     "test": {
       "presets": [
-        ["env", {
-          "targets": { "node": 10 }
+        ["@babel/preset-env", {
+          "targets": { "node": "current" }
         }]
       ],
       "plugins": [
-        ["transform-runtime", {
-          "helpers": false,
-          "polyfill": false,
+        ["@babel/plugin-transform-runtime", {
+          "helpers": true,
           "regenerator": true
         }]
       ]
