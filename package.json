@@ -12,7 +12,8 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
     "test": "jest",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once --pro"
   },
   "dependencies": {
     "@babel/preset-env": "^7.1.0",
@@ -43,7 +44,8 @@
     "nodemon": "^1.11.0",
     "prettier": "1.14.3",
     "vue-jest": "^3.0.0",
-    "semantic-release": "^15.10.7"
+    "semantic-release": "^15.10.7",
+    "travis-deploy-once": "^5.0.9"
   },
   "jest": {
     "moduleFileExtensions": [
