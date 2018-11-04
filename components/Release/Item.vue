@@ -238,6 +238,10 @@ export default {
     opacity: .001;
     transition: opacity .26s ease-out, transform .25s ease-out;
     transition-delay: .2s;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 90%;
   }
 
   /* States */
