@@ -1,6 +1,6 @@
 {
   "name": "la-discotheque",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Fancy Discogs-powered collection viewer",
   "author": "lovethebomb <lucas@lovethebomb.eu>",
   "private": true,
@@ -11,7 +11,8 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "test": "jest"
+    "test": "jest",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "@babel/preset-env": "^7.1.0",
@@ -41,7 +42,8 @@
     "jest-serializer-vue": "^2.0.2",
     "nodemon": "^1.11.0",
     "prettier": "1.14.3",
-    "vue-jest": "^3.0.0"
+    "vue-jest": "^3.0.0",
+    "semantic-release": "^15.10.7"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -63,5 +65,9 @@
     "setupFiles": [
       "<rootDir>/jest.setup.js"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lovethebomb/la-discotheque.git"
   }
 }
