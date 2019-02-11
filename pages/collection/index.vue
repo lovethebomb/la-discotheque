@@ -13,7 +13,7 @@ export default {
   },
   async asyncData({ store }) {
     if (!store.state.collection.isLoaded) {
-      await store.dispatch('GET_COLLECTION')
+      await store.dispatch('collection/GET_COLLECTION')
     }
 
     return {

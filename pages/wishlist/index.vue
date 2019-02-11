@@ -13,7 +13,7 @@ export default {
   },
   async asyncData({ store }) {
     if (!store.state.wantlist.isLoaded) {
-      await store.dispatch('GET_WANTLIST')
+      await store.dispatch('wantlist/GET_WANTLIST')
     }
 
     return {
