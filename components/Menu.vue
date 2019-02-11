@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="postcss">
 .Menu {
   display: none;
   appearance: none;

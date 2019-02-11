@@ -147,7 +147,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="postcss">
 .ReleaseItem {
   position: relative;
   width: 100%;

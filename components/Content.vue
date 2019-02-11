@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<style lang="css">
+<style lang="postcss">
 .Content {
   margin-left: 146px;
   padding: 0 1em 0 70px;

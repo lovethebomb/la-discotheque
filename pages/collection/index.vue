@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="postcss">
 .Collection {
   padding-top: var(--releaseListPadding);
 

@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="postcss">
 .Tracklist {
   position: relative;
 }

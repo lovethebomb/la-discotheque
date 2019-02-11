@@ -67,7 +67,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="postcss">
 .ReleaseList {
   display: flex;
   flex-flow: row wrap;

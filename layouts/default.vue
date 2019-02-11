@@ -72,7 +72,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="postcss">
 @import "~/assets/css/_variables.css";
 
 html {
