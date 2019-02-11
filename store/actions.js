@@ -1,4 +1,5 @@
-require('isomorphic-fetch')
+import fetch from 'isomorphic-fetch'
+
 // We declare it here because otherwise it will be overriden by the build process.
 const BASE_URL = process.env.BASE_URL || 'http://localhost:3000'
 
