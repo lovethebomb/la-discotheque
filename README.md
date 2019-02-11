@@ -1,6 +1,6 @@
 # La Discothèque
 
-[![Build Status](https://travis-ci.com/lovethebomb/la-discotheque.svg?branch=master)](https://travis-ci.com/lovethebomb/la-discotheque)
+[![Build Status](https://travis-ci.com/lovethebomb/la-discotheque.svg?branch=master)](https://travis-ci.com/lovethebomb/la-discotheque) [![Greenkeeper badge](https://badges.greenkeeper.io/lovethebomb/la-discotheque.svg)](https://greenkeeper.io/)
 
 Fancy Discogs-powered collection viewer.
 
