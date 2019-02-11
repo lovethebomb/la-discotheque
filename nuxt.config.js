@@ -1,5 +1,6 @@
 module.exports = {
   mode: 'universal',
+  modern: true,
 
   serverMiddleware: ['~/api'],
 
@@ -82,7 +83,7 @@ module.exports = {
               "image": "https://www.ilotreseau.net/img/ilotreseau-logo.svg",
               "url": "https://www.ilotreseau.net"
             }
-          },
+          }
         ]
       }`,
         type: 'application/ld+json'
