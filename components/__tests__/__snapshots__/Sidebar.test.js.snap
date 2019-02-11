@@ -4,11 +4,7 @@ exports[`Sidebar.vue matches snapshot 1`] = `
 <div role="navigation" class="Sidebar">
   <logo-stub></logo-stub>
   <ul class="Sidebar__Container">
-    <li class="Sidebar__Group">
-      <nuxtlink-stub tag="div" to="/collection" class="Sidebar__Link"><a>Collection</a></nuxtlink-stub>
-      <nuxtlink-stub tag="div" to="/wishlist" class="Sidebar__Link"><a>Wishlist</a></nuxtlink-stub>
-    </li>
-    <nuxtlink-stub tag="li" to="/about" class="Sidebar__Link"><a>About</a></nuxtlink-stub>
+    <li class="Sidebar__Group"><a tag="div" to="/collection" class="Sidebar__Link"><a>Collection</a></a> <a tag="div" to="/wishlist" class="Sidebar__Link"><a>Wishlist</a></a></li> <a tag="li" to="/about" class="Sidebar__Link"><a>About</a></a>
   </ul>
 </div>
 `;

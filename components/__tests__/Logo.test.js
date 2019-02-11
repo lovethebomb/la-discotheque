@@ -1,13 +1,10 @@
 import { shallowMount } from '@vue/test-utils'
 
-import NuxtLink from 'nuxt/lib/app/components/nuxt-link'
 import Logo from '~/components/Logo.vue'
 
 describe('Logo.vue', () => {
   beforeEach(() => {
-    Logo.components = Object.assign(Logo.components || {}, {
-      NuxtLink: NuxtLink
-    })
+    Logo.components = Object.assign(Logo.components || {})
   })
 
   it('renders nuxt-link correctly', () => {

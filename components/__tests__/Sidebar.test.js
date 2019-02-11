@@ -1,21 +1,26 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 
-const localVue = createLocalVue()
-import createStore from '~/store'
-
-import NuxtLink from 'nuxt/lib/app/components/nuxt-link'
+import { state, mutations, getters, actions } from '~/store'
 import Sidebar from '~/components/Sidebar.vue'
 
+const localVue = createLocalVue()
 localVue.use(Vuex)
+
+function createStore() {
+  return new Vuex.Store({
+    state,
+    mutations,
+    getters,
+    actions
+  })
+}
+
 describe('Sidebar.vue', () => {
   let store
-
   beforeEach(() => {
     store = createStore()
-    Sidebar.components = Object.assign(Sidebar.components || {}, {
-      NuxtLink: NuxtLink
-    })
+    Sidebar.components = Object.assign(Sidebar.components || {})
   })
 
   it('matches snapshot', () => {
