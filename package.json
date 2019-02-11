@@ -1,6 +1,6 @@
 {
   "name": "la-discotheque",
-  "version": "0.0.0-development",
+  "version": "1.0.1",
   "description": "Fancy Discogs-powered collection viewer",
   "author": "lovethebomb <lucas@lovethebomb.eu>",
   "private": true,
