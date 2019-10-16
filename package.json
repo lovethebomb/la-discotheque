@@ -21,7 +21,7 @@
     "core-js": "^2.6.4",
     "cross-env": "^5.2.0",
     "debounce": "^1.2.0",
-    "dotenv": "^7.0.0",
+    "dotenv": "^8.2.0",
     "gsap": "^2.0.2",
     "isomorphic-fetch": "^2.2.1",
     "nuxt": "^2.4.3",
