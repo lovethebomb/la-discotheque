@@ -41,7 +41,7 @@
     "eslint-plugin-vue": "^5.1.0",
     "jest": "^24.1.0",
     "jest-serializer-vue": "^2.0.2",
-    "nodemon": "^1.18.10",
+    "nodemon": "^2.0.0",
     "prettier": "1.16.4",
     "semantic-release": "^15.13.3",
     "travis-deploy-once": "^5.0.11",
