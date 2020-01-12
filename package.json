@@ -16,7 +16,7 @@
     "travis-deploy-once": "travis-deploy-once --pro"
   },
   "dependencies": {
-    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-env": "^7.8.0",
     "apicache": "^1.2.3",
     "core-js": "^2.6.4",
     "cross-env": "^5.2.0",
