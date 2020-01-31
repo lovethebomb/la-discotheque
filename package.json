@@ -43,7 +43,7 @@
     "jest-serializer-vue": "^2.0.2",
     "nodemon": "^1.18.10",
     "prettier": "1.16.4",
-    "semantic-release": "^15.13.3",
+    "semantic-release": "^17.0.2",
     "travis-deploy-once": "^5.0.11",
     "vue-jest": "^3.0.3"
   },
