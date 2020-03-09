@@ -98,7 +98,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/composition-api', '@/plugins/fathom'],
+  plugins: ['@/plugins/composition-api'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -111,10 +111,17 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    'nuxt-graphql-request'
     // '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     // '@nuxtjs/dotenv'
   ],
+  graphql: {
+    endpoint:
+      'https://5e6697329abd0c00084179c1--stupefied-bartik-7f5c77.netlify.com',
+    AST: false,
+    options: {}
+  },
   /*
    ** Build configuration
    */

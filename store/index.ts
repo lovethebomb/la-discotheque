@@ -1,4 +1,4 @@
-import { ActionContext, Commit, Dispatch } from 'vuex'
+import { ActionContext } from 'vuex'
 import { getAccessorType } from 'typed-vuex'
 import { Context } from '@nuxt/types'
 
@@ -11,16 +11,22 @@ export const state = () => ({
   BASE_URL: '',
   currentRelease: {},
   sidebarOpened: false,
-  isMobile: false
+  isMobile: false,
+  collection: [],
+  wantlist: []
 })
 
+type Release = {
+  id: number
+  data: Object
+}
 export type RootState = ReturnType<typeof state>
 
 export const mutations = {
   SET_BASE_URL(state: RootState, url: string) {
     state.BASE_URL = url
   },
-  SET_RELEASE(state: RootState, release: Object) {
+  SET_RELEASE(state: RootState, release: Release) {
     state.currentRelease = Object.assign({}, release.data)
   },
   SET_SIDEBAR_VISIBLE(state: RootState, visible: boolean) {
@@ -32,43 +38,37 @@ export const mutations = {
 }
 
 export const getters = {
-  getItemById: (state: RootState) => (folderName: String, id: number) => {
-    // if (!folderName) {
-    //   console.error('[store][getters] getItemById - missing arg folderName')
-    //   return
-    // }
-
-    folderName = folderName === 'wishlist' ? 'wantlist' : folderName
-
-    const folder = state[folderName]
-    if (folder.items && folder.items.length > 0) {
-      return folder.items.filter((item) => item.id === id)[0]
-    }
-    return false
-  },
-
-  getItemByIndex: (state: RootState) => (folderName: String, index: number) => {
-    folderName = folderName === 'wishlist' ? 'wantlist' : folderName
-
-    const folder = state[folderName]
-    if (folder.items && folder.items.length > 0) {
-      return folder.items[index]
-    }
-    return false
-  },
-
-  getFolderIndexById: (state: RootState) => (
-    folderName: String,
-    id: number
-  ) => {
-    folderName = folderName === 'wishlist' ? 'wantlist' : folderName
-
-    const folder = state[folderName]
-    if (folder.items && folder.items.length > 0) {
-      return folder.items.findIndex((item) => item.id === id)
-    }
-    return false
-  }
+  // getItemById: (state: RootState) => (folderName: string, id: number) => {
+  //   // if (!folderName) {
+  //   //   console.error('[store][getters] getItemById - missing arg folderName')
+  //   //   return
+  //   // }
+  //   folderName = folderName === 'wishlist' ? 'wantlist' : folderName
+  //   const folder = state.collection
+  //   if (folder.items && folder.items.length > 0) {
+  //     return folder.items.filter((item: Release) => item.id === id)[0]
+  //   }
+  //   return false
+  // },
+  // getItemByIndex: (state: RootState) => (folderName: String, index: number) => {
+  //   folderName = folderName === 'wishlist' ? 'wantlist' : folderName
+  //   const folder = state[folderName]
+  //   if (folder.items && folder.items.length > 0) {
+  //     return folder.items[index]
+  //   }
+  //   return false
+  // },
+  // getFolderIndexById: (state: RootState) => (
+  //   folderName: String,
+  //   id: number
+  // ) => {
+  //   folderName = folderName === 'wishlist' ? 'wantlist' : folderName
+  //   const folder = state[folderName]
+  //   if (folder.items && folder.items.length > 0) {
+  //     return folder.items.findIndex((item: Release) => item.id === id)
+  //   }
+  //   return false
+  // }
 }
 
 export const actions = {
@@ -84,18 +84,18 @@ export const actions = {
     }
     // TODO handle error
   },
-  // async nuxtServerInit(
-  //   { commit, dispatch }: ActionContext<Commit, Dispatch>,
-  //   { route }: Context
-  // ) {
-  //   // TODO improve checks
-  //   await commit('SET_BASE_URL', BASE_URL)
-  //   if (route.name === 'collection-slug') {
-  //     await dispatch('collection/GET_COLLECTION')
-  //   } else if (route.name === 'wishlist-slug') {
-  //     await dispatch('wantlist/GET_WANTLIST')
-  //   }
-  // }
+  async nuxtServerInit(
+    { commit }: ActionContext<RootState, RootState>,
+    { route }: Context
+  ) {
+    // TODO improve checks
+    await commit('SET_BASE_URL', BASE_URL)
+    if (route.name === 'collection-slug') {
+      // await dispatch('collection/GET_COLLECTION')
+    } else if (route.name === 'wishlist-slug') {
+      // await dispatch('wantlist/GET_WANTLIST')
+    }
+  }
 }
 
 export const accessorType = getAccessorType({
