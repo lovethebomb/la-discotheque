@@ -1,0 +1,53 @@
+.grid {
+  max-width: 1440px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.column {
+  display: block;
+  padding-left: 15px;
+  padding-right: 15px;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+@media screen and (min-width: 769px), print {
+  .is-1 {
+    width: 8.3333%;
+  }
+  .is-2 {
+    width: 16.6667%;
+  }
+  .is-3 {
+    width: 25%;
+  }
+  .is-4 {
+    width: 33.3333%;
+  }
+  .is-5 {
+    width: 41.6667%;
+  }
+  .is-6 {
+    width: 50%;
+  }
+  .is-7 {
+    width: 58.3333%;
+  }
+  .is-8 {
+    width: 66.6666%;
+  }
+  .is-9 {
+    width: 75%;
+  }
+  .is-10 {
+    width: 83.3333%;
+  }
+  .is-11 {
+    width: 91.6666%;
+  }
+  .is-12 {
+    width: 100%;
+  }
+}
