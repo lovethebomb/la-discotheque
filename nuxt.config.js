@@ -118,7 +118,7 @@ export default {
   ],
   graphql: {
     endpoint:
-      'https://5e6697329abd0c00084179c1--stupefied-bartik-7f5c77.netlify.com',
+      'https://la-discotheque-graphql.netlify.com/.netlify/functions/graphql',
     AST: false,
     options: {}
   },

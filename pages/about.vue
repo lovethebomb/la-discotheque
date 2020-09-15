@@ -15,13 +15,13 @@
 <script>
 export default {
   async mounted() {
-    const query = /* GraphQL */ `
-      query release(id: 11027873) {
+    const query = `{
+      release(id: 11027873) {
         id
         title
         thumb
       }
-    `
+    }`
 
     const release = await this.$graphql.request(query)
     // eslint-disable-next-line no-console
