@@ -192,9 +192,11 @@ export default {
     margin-bottom: 10px;
     opacity: 0.001;
     transition: opacity 0.25s ease-out;
-    z-index: 1;
+    z-index: 2;
+    position: relative;
     span {
       padding: 0px 6px 2px 0px;
+      line-height: 1em;
     }
   }
   .ReleaseItem__Artist {
@@ -203,14 +205,15 @@ export default {
     opacity: 0.001;
     transition: opacity 0.24s ease-out;
     transition-delay: 0.1s;
+    margin-top: -10px;
     z-index: 1;
     span {
       padding: 4px 6px 2px 0px;
+      line-height: 38px;
     }
   }
   .ReleaseItem__Album span,
   .ReleaseItem__Artist span {
-    line-height: 1em;
     background-color: var(--releaseTitleBackground);
   }
   .ReleaseItem__Details {

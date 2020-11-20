@@ -108,21 +108,6 @@ export default {
     'nuxt-typed-vuex'
   ],
   /*
-   ** Nuxt.js modules
-   */
-  modules: [
-    'nuxt-graphql-request'
-    // '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    // '@nuxtjs/dotenv'
-  ],
-  graphql: {
-    endpoint:
-      'https://la-discotheque-graphql.netlify.com/.netlify/functions/graphql',
-    AST: false,
-    options: {}
-  },
-  /*
    ** Build configuration
    */
   build: {
